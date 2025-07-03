@@ -4,35 +4,38 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, Globe, Shield, Users, BarChart3, Activity } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout/Layout';
 import whoBackground from '../../assets/who_background.jpg';
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
+  
   const features = [
     {
       icon: TrendingUp,
-      title: 'Prédictions Avancées',
-      description: 'Algorithmes de machine learning pour des prédictions précises en santé publique',
+      title: t('homepage.predictiveModels'),
+      description: t('homepage.advancedAnalytics'),
       color: 'text-blue-600',
       bgColor: 'bg-blue-50 dark:bg-blue-950/20',
     },
     {
       icon: Globe,
-      title: 'Couverture Mondiale',
-      description: 'Données et analyses pour plus de 190 pays à travers le monde',
+      title: t('homepage.multiCountrySupport'),
+      description: t('homepage.realTimeData'),
       color: 'text-green-600',
       bgColor: 'bg-green-50 dark:bg-green-950/20',
     },
     {
       icon: Shield,
-      title: 'Sécurité des Données',
-      description: 'Protection et confidentialité des données selon les standards WHO',
+      title: t('dataProtection.title'),
+      description: t('dataProtection.description'),
       color: 'text-purple-600',
       bgColor: 'bg-purple-50 dark:bg-purple-950/20',
     },
     {
       icon: BarChart3,
-      title: 'Visualisations Interactives',
+      title: t('features.dashboardsAndCharts'),
       description: 'Graphiques et tableaux de bord pour une analyse approfondie',
       color: 'text-orange-600',
       bgColor: 'bg-orange-50 dark:bg-orange-950/20',
@@ -58,26 +61,25 @@ const HomePage: React.FC = () => {
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                 <span className="text-primary">AnalyzeIt</span>
                 <br />
-                <span className="text-muted-foreground">Prédictions Santé</span>
+                <span className="text-muted-foreground">{t('homepage.title')}</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Plateforme d'analyse prédictive en santé publique utilisant l'intelligence artificielle 
-                pour anticiper les tendances épidémiologiques mondiales.
+                {t('homepage.description')}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Button asChild size="lg" className="text-lg px-8 py-3">
                   <Link to="/predictions">
                     <TrendingUp className="h-5 w-5 mr-2" />
-                    Commencer l'analyse
+                    {t('homepage.startAnalysis')}
                   </Link>
                 </Button>
                 
                 <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
                   <Link to="/profile">
                     <Users className="h-5 w-5 mr-2" />
-                    Mon compte
+                    {t('navigation.profile')}
                   </Link>
                 </Button>
               </div>
@@ -89,9 +91,9 @@ const HomePage: React.FC = () => {
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Fonctionnalités Principales</h2>
+              <h2 className="text-3xl font-bold mb-4">{t('homepage.features')}</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Des outils puissants pour l'analyse et la prédiction en santé publique
+                {t('homepage.subtitle')}
               </p>
             </div>
             
@@ -121,15 +123,15 @@ const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div className="space-y-2">
                 <div className="text-4xl font-bold text-primary">190+</div>
-                <div className="text-muted-foreground">Pays analysés</div>
+                <div className="text-muted-foreground">{t('homepage.totalCountries')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-4xl font-bold text-primary">1M+</div>
-                <div className="text-muted-foreground">Points de données</div>
+                <div className="text-muted-foreground">{t('homepage.dataPoints')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-4xl font-bold text-primary">99.9%</div>
-                <div className="text-muted-foreground">Précision des modèles</div>
+                <div className="text-muted-foreground">{t('homepage.modelAccuracy')}</div>
               </div>
             </div>
           </div>
@@ -175,16 +177,16 @@ const HomePage: React.FC = () => {
           <div className="relative z-10 container mx-auto px-4 text-center">
             <div className="max-w-2xl mx-auto space-y-6">
               <h2 className="text-3xl font-bold transform transition-all duration-1000 hover:scale-105">
-                Prêt à commencer votre analyse ?
+                {t('homepage.readyToStart')}
               </h2>
               <p className="text-lg opacity-90 transform transition-all duration-1000 delay-200">
-                Accédez à nos outils de prédiction et découvrez les tendances de santé publique
+                {t('homepage.accessTools')}
               </p>
               <div className="transform transition-all duration-1000 delay-400">
                 <Button variant="secondary" size="lg" className="text-lg px-8 py-3 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm" asChild>
                   <Link to="/predictions">
                     <BarChart3 className="h-5 w-5 mr-2 animate-pulse" />
-                    Lancer une prédiction
+                    {t('homepage.launchPrediction')}
                   </Link>
                 </Button>
               </div>

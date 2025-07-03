@@ -5,21 +5,23 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { Activity, User, Home, BarChart3 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import whoEmblem from '../../assets/who-emblem.svg';
 import defaultAvatar from '../../assets/default-profile-avatar.png';
 import useLoggedUser from '../../hooks/useLoggedUser';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const isAuthenticated = useIsAuthenticated();
   const { user } = useLoggedUser();
   const location = useLocation();
   const isUserLoading = isAuthenticated && !user;
 
-
   const navItems = [
-    { path: '/', label: 'Accueil', icon: Home },
-    { path: '/predictions', label: 'Prédictions', icon: BarChart3 },
+    { path: '/', label: t('navigation.home'), icon: Home },
+    { path: '/predictions', label: t('navigation.predictions'), icon: BarChart3 },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -62,6 +64,7 @@ const Navbar: React.FC = () => {
 
         {/* Actions utilisateur */}
         <div className="flex items-center space-x-3">
+          <LanguageSelector showLabel={false} className="hidden md:block" />
           <ThemeToggle />
 
           {isUserLoading ? (
@@ -80,7 +83,7 @@ const Navbar: React.FC = () => {
                     {user.firstname} {user.lastname}
                   </span>
                   <Badge variant={user.isAdmin ? "default" : "secondary"} className="text-xs">
-                    {user.isAdmin ? "Admin" : "Utilisateur"}
+                    {user.isAdmin ? "Admin" : t('navigation.user')}
                   </Badge>
                 </div>
               </Link>
@@ -89,7 +92,7 @@ const Navbar: React.FC = () => {
             <Button variant="default" size="sm" asChild>
               <Link to="/login" className="flex items-center space-x-2">
                 <User className="h-4 w-4" />
-                <span>Connexion</span>
+                <span>{t('auth.login')}</span>
               </Link>
             </Button>
           )}

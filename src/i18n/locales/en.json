@@ -19,7 +19,8 @@
     "theme": "Theme",
     "dark": "Dark",
     "light": "Light",
-    "system": "System"
+    "system": "System",
+    "date": "Date"
   },
   "navigation": {
     "home": "Home",
@@ -60,6 +61,10 @@
     "editUser": "Edit User",
     "deleteUser": "Delete User",
     "userList": "User List",
+    "loadingUsers": "Loading users",
+    "administerUsers": "Manage user accounts",
+    "getStarted": "Start by adding your first user",
+    "loadingError": "Error loading users",
     "firstName": "First Name",
     "lastName": "Last Name",
     "email": "Email",
@@ -74,7 +79,8 @@
     "userUpdated": "User updated successfully",
     "deleteError": "Error deleting user",
     "addError": "Error adding user",
-    "updateError": "Error updating user"
+    "updateError": "Error updating user",
+    "userCreated": "User {{name}} created successfully."
   },
   "predictions": {
     "title": "Epidemiological Predictions",
@@ -115,7 +121,10 @@
     "trend": "Trend",
     "increasing": "Increasing",
     "decreasing": "Decreasing",
-    "stable": "Stable"
+    "stable": "Stable",
+    "generatePredictions": "Generate Predictions",
+    "totalCountries": "Countries Analyzed",
+    "gdp": "GDP"
   },
   "settings": {
     "title": "Settings",
@@ -137,10 +146,13 @@
     "resetSettings": "Reset Settings",
     "confirmReset": "Are you sure you want to reset all settings?",
     "languageDescription": "Choose the interface language",
-    "themeDescription": "Choose the application theme"
+    "themeDescription": "Choose the application theme",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "systemMode": "System Mode"
   },
   "profile": {
-    "title": "User Profile",
+    "title": "YOUR PROFILE",
     "editProfile": "Edit Profile",
     "personalInfo": "Personal Information",
     "accountSettings": "Account Settings",
@@ -159,7 +171,8 @@
     "updateError": "Error updating profile",
     "avatar": "Avatar",
     "changeAvatar": "Change Avatar",
-    "deleteAvatar": "Delete Avatar"
+    "deleteAvatar": "Delete Avatar",
+    "loading": "Loading your profile..."
   },
   "homepage": {
     "title": "Epidemiological Dashboard",
@@ -182,13 +195,19 @@
     "predictiveModels": "Predictive Models",
     "dataVisualization": "Data Visualization",
     "multiCountrySupport": "Multi-country Support",
-    "userManagement": "User Management"
+    "userManagement": "User Management",
+    "dataPoints": "Data Points",
+    "modelAccuracy": "Model Accuracy",
+    "readyToStart": "Ready to start your analysis?",
+    "accessTools": "Access our prediction tools and discover public health trends",
+    "launchPrediction": "Launch a prediction"
   },
   "validation": {
     "required": "This field is required",
     "email": "Invalid email",
     "password": "Password must contain at least 8 characters",
     "confirmPassword": "Passwords do not match",
+    "passwordsDoNotMatch": "Passwords do not match",
     "minLength": "Minimum {{min}} characters",
     "maxLength": "Maximum {{max}} characters",
     "invalidDate": "Invalid date",
@@ -210,7 +229,8 @@
     "unprocessable": "Unprocessable data",
     "tooManyRequests": "Too many requests",
     "serviceUnavailable": "Service unavailable",
-    "unknownError": "Unknown error"
+    "unknownError": "Unknown error",
+    "loadingError": "Loading error"
   },
   "success": {
     "saved": "Saved successfully",
@@ -229,5 +249,90 @@
     "long": "MMMM dd, yyyy",
     "dateTime": "MM/dd/yyyy HH:mm",
     "time": "HH:mm"
+  },
+  "charts": {
+    "transmissionRate": "Transmission Rate",
+    "mortalityRate": "Mortality Rate",
+    "transmissionEvolution": "Transmission Rate Evolution - {{country}}",
+    "mortalityEvolution": "Mortality Rate Evolution - {{country}}",
+    "historicalData": "Historical Data - {{country}}",
+    "predictedData": "Predicted Data - {{country}}",
+    "transmissionPredicted": "Predicted Transmission Rate - {{country}}",
+    "mortalityPredicted": "Predicted Mortality Rate - {{country}}",
+    "mortalityHistorical": "Historical Mortality Rate - {{country}}"
+  },
+  "controls": {
+    "predictionSettings": "Prediction Settings",
+    "selectPeriodAndCountry": "Select a period and country to generate predictions",
+    "selectStartDate": "Select start date",
+    "selectEndDate": "Select end date",
+    "selectCountryPlaceholder": "Select a country",
+    "showPredictions": "Show Predictions",
+    "validate": "Validate",
+    "generating": "Generating...",
+    "loadingMetrics": "Loading metrics...",
+    "metricsError": "Metrics error: {{error}}"
+  },
+  "countrySummary": {
+    "geographicInfo": "Geographic Information",
+    "coordinates": "Coordinates",
+    "metrics": "Metrics",
+    "metricsNote": "Metrics \"bis\"",
+    "basedOnData2022": "(based only on data from 2022 onwards)"
+  },
+  "forms": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "creating": "Creating...",
+    "createUser": "Create User",
+    "updating": "Updating...",
+    "update": "Update",
+    "updateUser": "Update User",
+    "cancel": "Cancel",
+    "cancelCreation": "Cancel Creation",
+    "loading": "Loading...",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "passwordMinLength": "New password must contain at least 8 characters.",
+    "passwordUpdateFailed": "Failed to update password.",
+    "passwordUpdateSuccess": "Password updated successfully.",
+    "updateError": "Update error. Please try again."
+  },
+  "userProfile": {
+    "role": "ROLE",
+    "administrator": "Administrator",
+    "user": "User",
+    "firstName": "FIRST NAME",
+    "lastName": "LAST NAME",
+    "email": "EMAIL"
+  },
+  "sections": {
+    "information": "Information",
+    "security": "Security",
+    "preferences": "Preferences",
+    "users": "Users",
+    "personalInfo": "Personal Information",
+    "manageProfile": "Manage your profile information",
+    "securitySettings": "Security Settings",
+    "changePassword": "Change your password",
+    "configurePreferences": "Configure your preferences",
+    "userManagement": "User Management",
+    "manageUsers": "Manage platform users"
+  },
+  "accessControl": {
+    "accessDenied": "Access Denied",
+    "adminRequired": "You must be an administrator to access this section.",
+    "personalInfoDescription": "Manage your personal information and account settings"
+  },
+  "theme": {
+    "changeTheme": "Change Theme"
+  },
+  "dataProtection": {
+    "title": "Data Security",
+    "description": "Data protection and privacy according to WHO standards"
+  },
+  "features": {
+    "dashboardsAndCharts": "Charts and dashboards for in-depth analysis"
   }
 } 

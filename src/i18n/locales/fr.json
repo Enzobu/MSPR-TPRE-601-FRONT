@@ -19,7 +19,8 @@
     "theme": "Thème",
     "dark": "Sombre",
     "light": "Clair",
-    "system": "Système"
+    "system": "Système",
+    "date": "Date"
   },
   "navigation": {
     "home": "Accueil",
@@ -60,6 +61,10 @@
     "editUser": "Modifier l'utilisateur",
     "deleteUser": "Supprimer l'utilisateur",
     "userList": "Liste des utilisateurs",
+    "loadingUsers": "Chargement des utilisateurs",
+    "administerUsers": "Administrez les comptes utilisateurs",
+    "getStarted": "Commencez par ajouter votre premier utilisateur",
+    "loadingError": "Erreur lors du chargement des utilisateurs",
     "firstName": "Prénom",
     "lastName": "Nom",
     "email": "Email",
@@ -74,7 +79,8 @@
     "userUpdated": "Utilisateur modifié avec succès",
     "deleteError": "Erreur lors de la suppression",
     "addError": "Erreur lors de l'ajout",
-    "updateError": "Erreur lors de la modification"
+    "updateError": "Erreur lors de la modification",
+    "userCreated": "Utilisateur {{name}} créé avec succès."
   },
   "predictions": {
     "title": "Prédictions épidémiologiques",
@@ -115,7 +121,10 @@
     "trend": "Tendance",
     "increasing": "Croissante",
     "decreasing": "Décroissante",
-    "stable": "Stable"
+    "stable": "Stable",
+    "generatePredictions": "Générer les prédictions",
+    "totalCountries": "Pays analysés",
+    "gdp": "PIB"
   },
   "settings": {
     "title": "Paramètres",
@@ -137,10 +146,13 @@
     "resetSettings": "Réinitialiser les paramètres",
     "confirmReset": "Êtes-vous sûr de vouloir réinitialiser tous les paramètres ?",
     "languageDescription": "Choisissez la langue de l'interface",
-    "themeDescription": "Choisissez le thème de l'application"
+    "themeDescription": "Choisissez le thème de l'application",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "systemMode": "Mode système"
   },
   "profile": {
-    "title": "Profil utilisateur",
+    "title": "VOTRE PROFIL",
     "editProfile": "Modifier le profil",
     "personalInfo": "Informations personnelles",
     "accountSettings": "Paramètres du compte",
@@ -159,7 +171,8 @@
     "updateError": "Erreur lors de la mise à jour du profil",
     "avatar": "Avatar",
     "changeAvatar": "Changer l'avatar",
-    "deleteAvatar": "Supprimer l'avatar"
+    "deleteAvatar": "Supprimer l'avatar",
+    "loading": "Chargement de votre profil..."
   },
   "homepage": {
     "title": "Tableau de bord épidémiologique",
@@ -182,13 +195,19 @@
     "predictiveModels": "Modèles prédictifs",
     "dataVisualization": "Visualisation des données",
     "multiCountrySupport": "Support multi-pays",
-    "userManagement": "Gestion des utilisateurs"
+    "userManagement": "Gestion des utilisateurs",
+    "dataPoints": "Points de données",
+    "modelAccuracy": "Précision des modèles",
+    "readyToStart": "Prêt à commencer votre analyse ?",
+    "accessTools": "Accédez à nos outils de prédiction et découvrez les tendances de santé publique",
+    "launchPrediction": "Lancer une prédiction"
   },
   "validation": {
     "required": "Ce champ est obligatoire",
     "email": "Email invalide",
     "password": "Le mot de passe doit contenir au moins 8 caractères",
     "confirmPassword": "Les mots de passe ne correspondent pas",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
     "minLength": "Minimum {{min}} caractères",
     "maxLength": "Maximum {{max}} caractères",
     "invalidDate": "Date invalide",
@@ -210,7 +229,8 @@
     "unprocessable": "Données non traitables",
     "tooManyRequests": "Trop de requêtes",
     "serviceUnavailable": "Service indisponible",
-    "unknownError": "Erreur inconnue"
+    "unknownError": "Erreur inconnue",
+    "loadingError": "Erreur de chargement"
   },
   "success": {
     "saved": "Enregistré avec succès",
@@ -229,5 +249,90 @@
     "long": "dd MMMM yyyy",
     "dateTime": "dd/MM/yyyy HH:mm",
     "time": "HH:mm"
+  },
+  "charts": {
+    "transmissionRate": "Taux de transmission",
+    "mortalityRate": "Taux de mortalité",
+    "transmissionEvolution": "Évolution du taux de transmission - {{country}}",
+    "mortalityEvolution": "Évolution du taux de mortalité - {{country}}",
+    "historicalData": "Données historiques - {{country}}",
+    "predictedData": "Données prédites - {{country}}",
+    "transmissionPredicted": "Taux de transmission prédit - {{country}}",
+    "mortalityPredicted": "Taux de mortalité prédit - {{country}}",
+    "mortalityHistorical": "Taux de mortalité historique - {{country}}"
+  },
+  "controls": {
+    "predictionSettings": "Paramètres de prédiction",
+    "selectPeriodAndCountry": "Sélectionnez une période et un pays pour générer des prédictions",
+    "selectStartDate": "Sélectionner la date de début",
+    "selectEndDate": "Sélectionner la date de fin",
+    "selectCountryPlaceholder": "Sélectionnez un pays",
+    "showPredictions": "Afficher les prédictions",
+    "validate": "Valider",
+    "generating": "Génération...",
+    "loadingMetrics": "Chargement des métriques...",
+    "metricsError": "Erreur métriques : {{error}}"
+  },
+  "countrySummary": {
+    "geographicInfo": "Informations géographiques",
+    "coordinates": "Coordonnées",
+    "metrics": "Métriques",
+    "metricsNote": "Métriques \"bis\"",
+    "basedOnData2022": "(basés uniquement sur les données à partir de 2022)"
+  },
+  "forms": {
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "creating": "Création...",
+    "createUser": "Créer l'utilisateur",
+    "updating": "Mise à jour...",
+    "update": "Mettre à jour",
+    "updateUser": "Mettre à jour l'utilisateur",
+    "cancel": "Annuler",
+    "cancelCreation": "Annuler la création",
+    "loading": "Chargement...",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "passwordMinLength": "Le nouveau mot de passe doit contenir au moins 8 caractères.",
+    "passwordUpdateFailed": "Échec de la mise à jour du mot de passe.",
+    "passwordUpdateSuccess": "Mot de passe mis à jour avec succès.",
+    "updateError": "Erreur lors de la mise à jour. Veuillez réessayer."
+  },
+  "userProfile": {
+    "role": "RÔLE",
+    "administrator": "Administrateur",
+    "user": "Utilisateur",
+    "firstName": "PRÉNOM",
+    "lastName": "NOM",
+    "email": "EMAIL"
+  },
+  "sections": {
+    "information": "Informations",
+    "security": "Sécurité",
+    "preferences": "Préférences",
+    "users": "Utilisateurs",
+    "personalInfo": "Informations personnelles",
+    "manageProfile": "Gérez vos informations de profil",
+    "securitySettings": "Paramètres de sécurité",
+    "changePassword": "Changer votre mot de passe",
+    "configurePreferences": "Configurez vos préférences",
+    "userManagement": "Gestion des utilisateurs",
+    "manageUsers": "Gérez les utilisateurs de la plateforme"
+  },
+  "accessControl": {
+    "accessDenied": "Accès refusé",
+    "adminRequired": "Vous devez être administrateur pour accéder à cette section.",
+    "personalInfoDescription": "Gérez vos informations personnelles et paramètres de compte"
+  },
+  "theme": {
+    "changeTheme": "Changer le thème"
+  },
+  "dataProtection": {
+    "title": "Sécurité des Données",
+    "description": "Protection et confidentialité des données selon les standards WHO"
+  },
+  "features": {
+    "dashboardsAndCharts": "Graphiques et tableaux de bord pour une analyse approfondie"
   }
 } 
