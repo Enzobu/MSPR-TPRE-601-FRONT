@@ -2,6 +2,23 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import MortalityRateChart from './MortalityRateChart';
 
+// Mock de react-i18next
+vi.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string, options?: { country?: string }) => {
+      const translations: { [key: string]: string } = {
+        "charts.mortalityEvolution": `Évolution du taux de mortalité - ${options?.country || ""}`,
+        "charts.mortalityHistorical": `Taux de mortalité historique - ${options?.country || ""}`,
+        "charts.mortalityPredicted": `Taux de mortalité prédit - ${options?.country || ""}`,
+        "charts.mortalityRate": "Taux de mortalité",
+        "common.date": "Date"
+      };
+      return translations[key] || key;
+    }
+  }),
+  I18nextProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 // Mock de react-chartjs-2
 vi.mock('react-chartjs-2', () => ({
   Line: ({ data, options }: any) => (

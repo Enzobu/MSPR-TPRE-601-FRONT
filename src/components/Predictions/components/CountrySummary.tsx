@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { MapPin, Users, DollarSign, Globe, Flag, Activity } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { getFlagEmojiFromIso3 } from '../../../utils/flagUtils';
 import { countryTranslations } from '../../../data/countryTranslations';
 import { capitalize, capitalizeEachWord } from '../utils/capitalize';
@@ -16,6 +17,8 @@ interface CountrySummaryProps {
 }
 
 const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => {    
+  const { t } = useTranslation();
+  
   const formatNumber = (num: string | undefined) => {
     if (!num) return 'N/A';
     return new Intl.NumberFormat('fr-FR').format(Number(num));
@@ -48,13 +51,13 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
             <div>
               <h2 className="text-2xl font-bold">{translatedName}</h2>
               <p className="text-muted-foreground text-sm">
-                Code ISO: {country.iso_code}
+                {t('predictions.isoCode')}: {country.iso_code}
               </p>
             </div>
           </CardTitle>
           <Badge variant="outline" className="flex items-center space-x-1">
             <Globe className="h-3 w-3" />
-            <span>Continent : {metrics ? capitalizeEachWord(metrics.continent) : "N/A"}</span>
+            <span>{t('predictions.continent')} : {metrics ? capitalizeEachWord(metrics.continent) : "N/A"}</span>
           </Badge>
         </div>
       </CardHeader>
@@ -69,7 +72,7 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
               <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Population</p>
+              <p className="text-sm font-medium text-muted-foreground">{t('predictions.population')}</p>
               <p className="text-lg font-bold text-blue-700 dark:text-blue-300">
                 {formatNumber(country.population)}
               </p>
@@ -82,7 +85,7 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
               <DollarSign className="h-5 w-5 text-green-600 dark:text-green-400" />
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground">PIB</p>
+              <p className="text-sm font-medium text-muted-foreground">{t('predictions.gdp')}</p>
               <p className="text-lg font-bold text-green-700 dark:text-green-300">
                 {formatCurrency(country.pib)}
               </p>
@@ -95,7 +98,7 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
               <MapPin className="h-5 w-5 text-orange-600 dark:text-orange-400" />
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Latitude</p>
+              <p className="text-sm font-medium text-muted-foreground">{t('predictions.latitude')}</p>
               <p className="text-lg font-bold text-orange-700 dark:text-orange-300">
                 {formatCoordinate(country.latitude)}°
               </p>
@@ -108,7 +111,7 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
               <MapPin className="h-5 w-5 text-purple-600 dark:text-purple-400" />
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Longitude</p>
+              <p className="text-sm font-medium text-muted-foreground">{t('predictions.longitude')}</p>
               <p className="text-lg font-bold text-purple-700 dark:text-purple-300">
                 {formatCoordinate(country.longitude)}°
               </p>
@@ -120,11 +123,11 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <div className="flex items-center space-x-2 mb-3">
             <Flag className="h-4 w-4 text-muted-foreground" />
-            <h3 className="font-semibold">Informations géographiques</h3>
+            <h3 className="font-semibold">{t('countrySummary.geographicInfo')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="font-medium">Coordonnées:</span>{' '}
+              <span className="font-medium">{t('countrySummary.coordinates')}:</span>{' '}
               <span className="text-muted-foreground">
                 {country.latitude ? Number(country.latitude).toFixed(4) : 'N/A'}°N, {country.longitude ? Number(country.longitude).toFixed(4) : 'N/A'}°E
               </span>
@@ -142,7 +145,7 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <div className="flex items-center space-x-2 mb-3">
             <Activity className="h-4 w-4 text-muted-foreground" />
-            <h3 className="font-semibold">Métriques</h3>
+            <h3 className="font-semibold">{t('countrySummary.metrics')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
             <div>
@@ -174,7 +177,7 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
 
           <div className="flex items-center space-x-2 mb-3">
             <Activity className="h-4 w-4 text-muted-foreground" />
-            <h3 className="font-semibold">Métriques "bis" <span className="text-xs text-muted-foreground">(basés uniquement sur les données à partir de 2022)</span></h3>
+            <h3 className="font-semibold">{t('countrySummary.metricsNote')} <span className="text-xs text-muted-foreground">{t('countrySummary.basedOnData2022')}</span></h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">

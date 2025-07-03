@@ -3,6 +3,31 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import PredictionsControls from './TransmissionControls';
 import type { Country } from '../../../types/types';
 
+// Mock de react-i18next
+vi.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string, options?: any) => {
+      const translations: { [key: string]: string } = {
+        "controls.predictionSettings": "Paramètres de prédiction",
+        "controls.selectPeriodAndCountry": "Sélectionnez une période et un pays pour générer des prédictions",
+        "predictions.startDate": "Date de début",
+        "predictions.endDate": "Date de fin",
+        "predictions.country": "Pays",
+        "controls.selectStartDate": "Sélectionner la date de début",
+        "controls.selectEndDate": "Sélectionner la date de fin",
+        "controls.selectCountryPlaceholder": "Sélectionnez un pays",
+        "controls.showPredictions": "Afficher les prédictions",
+        "controls.generating": "Chargement...",
+        "common.loading": "Chargement...",
+        "predictions.selectStartDate": "Veuillez d'abord sélectionner une date de début",
+        "predictions.maxEndDate": options?.date ? `Maximum : ${options.date} (90 jours)` : "Maximum : {{date}} (90 jours)"
+      };
+      return translations[key] || key;
+    }
+  }),
+  I18nextProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 // Mock des traductions
 vi.mock('../../../data/countryTranslations', () => ({
   countryTranslations: {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { type TooltipItem } from "chart.js";
+import { useTranslation } from 'react-i18next';
 
 interface TransmissionRateData {
   [date: string]: number;
@@ -23,6 +24,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
   transmissionRate,
   countryName,
 }) => {
+  const { t } = useTranslation();
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -46,7 +48,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
     ),
     datasets: [
       {
-        label: `Données historiques - ${countryName}`,
+        label: t('charts.historicalData', { country: countryName }),
         data: transformedData.map((item) => {
           const date = new Date(item.date);
           return date <= today ? item.rate : null;
@@ -60,7 +62,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
         spanGaps: true,
       },
       {
-        label: `Taux de transmission prédit - ${countryName}`,
+        label: t('charts.transmissionPredicted', { country: countryName }),
         data: transformedData.map((item) => {
           const date = new Date(item.date);
           return date > today ? item.rate : null;
@@ -91,7 +93,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
       },
       title: {
         display: true,
-        text: `Évolution du taux de transmission - ${countryName}`,
+        text: t('charts.transmissionEvolution', { country: countryName }),
         font: {
           size: 16,
           weight: "bold" as const,
@@ -107,7 +109,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
         beginAtZero: true,
         title: {
           display: true,
-          text: "Taux de transmission",
+          text: t('charts.transmissionRate'),
         },
         ticks: {
           callback: function (value: any) {
@@ -118,7 +120,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
       x: {
         title: {
           display: true,
-          text: "Date",
+          text: t('common.date'),
         },
       },
     },

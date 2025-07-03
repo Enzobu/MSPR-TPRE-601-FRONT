@@ -17,20 +17,20 @@ describe('PasswordChange', () => {
     render(<PasswordChange />);
   });
 
-  it("devrait afficher le titre 'Changer le mot de passe'", () => {
-    expect(screen.getByText('Changer le mot de passe')).toBeInTheDocument();
+  it("devrait afficher le titre 'Changer votre mot de passe'", () => {
+    expect(screen.getByText('Changer votre mot de passe')).toBeInTheDocument();
   });
 
-  it("devrait afficher le champ de l'ancien mot de passe", () => {
-    expect(screen.getByLabelText(/ancien mot de passe/i)).toBeInTheDocument();
+  it("devrait afficher le champ du mot de passe actuel", () => {
+    expect(screen.getByLabelText(/mot de passe actuel/i)).toBeInTheDocument();
   });
 
   it('devrait afficher le champ du nouveau mot de passe', () => {
-    expect(screen.getByLabelText(/^nouveau mot de passe/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^nouveau mot de passe$/i)).toBeInTheDocument();
   });
 
   it('devrait afficher le champ de confirmation du mot de passe', () => {
-    expect(screen.getByLabelText(/^confirmer le nouveau mot de passe/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^confirmer le mot de passe$/i)).toBeInTheDocument();
   });
 
   it("devrait afficher le bouton de mise à jour", () => {

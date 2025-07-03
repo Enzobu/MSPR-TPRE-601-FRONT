@@ -23,7 +23,7 @@ describe('UserProfile', () => {
     });
 
     render(<UserProfile />);
-    expect(screen.getByText('Chargement des informations utilisateur...')).toBeInTheDocument();
+    expect(screen.getByText('Chargement...')).toBeInTheDocument();
   });
 
   it("devrait afficher un message d'erreur en cas de problème", () => {
@@ -34,7 +34,9 @@ describe('UserProfile', () => {
     });
 
     render(<UserProfile />);
-    expect(screen.getByText('Erreur: Une erreur est survenue')).toBeInTheDocument();
+    expect(screen.getByText((content) => {
+      return content.includes('Une erreur s\'est produite') && content.includes('Une erreur est survenue');
+    })).toBeInTheDocument();
   });
 
   it("devrait afficher les informations de l'utilisateur une fois chargées", () => {

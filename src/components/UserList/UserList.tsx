@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,6 +7,7 @@ import { Plus, Users, Shield, UserCheck, Trash2, Edit, AlertCircle } from 'lucid
 import type { User } from '../../types/types';
 
 const UserList: React.FC = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>('');
@@ -26,7 +28,7 @@ const UserList: React.FC = () => {
         setLoading(false);
       }, 1000);
     } catch (err) {
-      setError('Erreur lors du chargement des utilisateurs');
+      setError(t('users.loadingError'));
       setLoading(false);
     }
   };
@@ -37,7 +39,7 @@ const UserList: React.FC = () => {
         <CardContent className="flex items-center justify-center py-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-            <p className="text-muted-foreground">Chargement des utilisateurs...</p>
+            <p className="text-muted-foreground">{t('users.loadingUsers')}</p>
           </div>
         </CardContent>
       </Card>
@@ -50,7 +52,7 @@ const UserList: React.FC = () => {
         <CardContent className="flex items-center space-x-3 py-4">
           <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0" />
           <div>
-            <p className="font-medium text-destructive">Erreur</p>
+            <p className="font-medium text-destructive">{t('common.error')}</p>
             <p className="text-sm text-muted-foreground">{error}</p>
           </div>
         </CardContent>
@@ -62,12 +64,12 @@ const UserList: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold">Gestion des utilisateurs</h2>
-          <p className="text-muted-foreground">Administrez les comptes utilisateurs</p>
+          <h2 className="text-2xl font-bold">{t('users.title')}</h2>
+          <p className="text-muted-foreground">{t('users.administerUsers')}</p>
         </div>
         <Button>
           <Plus className="h-4 w-4 mr-2" />
-          Ajouter un utilisateur
+          {t('users.addUser')}
         </Button>
       </div>
 
@@ -94,7 +96,7 @@ const UserList: React.FC = () => {
                 
                 <div className="flex items-center space-x-3">
                   <Badge variant={user.isAdmin ? "default" : "secondary"}>
-                    {user.isAdmin ? "Administrateur" : "Utilisateur"}
+                    {user.isAdmin ? t('userProfile.administrator') : t('userProfile.user')}
                   </Badge>
                   
                   <div className="flex space-x-2">
@@ -116,8 +118,8 @@ const UserList: React.FC = () => {
         <Card>
           <CardContent className="text-center py-8">
             <Users className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Aucun utilisateur</h3>
-            <p className="text-muted-foreground">Commencez par ajouter votre premier utilisateur</p>
+            <h3 className="text-lg font-semibold mb-2">{t('users.noUsers')}</h3>
+            <p className="text-muted-foreground">{t('users.getStarted')}</p>
           </CardContent>
         </Card>
       )}

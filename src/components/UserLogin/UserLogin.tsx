@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-
-
 import { Loader2, Mail, Lock, LogIn } from 'lucide-react';
 
 const UserLogin: React.FC = () => {
@@ -14,6 +13,7 @@ const UserLogin: React.FC = () => {
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   
+  const { t } = useTranslation();
   const signIn = useSignIn();
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const UserLogin: React.FC = () => {
     setIsLoading(true);
 
     if (!email || !password) {
-      setError("Veuillez remplir tous les champs");
+      setError(t('auth.fillAllFields'));
       setIsLoading(false);
       return;
     }
@@ -53,14 +53,14 @@ const UserLogin: React.FC = () => {
         if (signInSuccess) {
           navigate("/");
         } else {
-          setError("Erreur lors de la connexion");
+          setError(t('auth.loginError'));
         }
       } else {
-        setError(data.message || "Identifiants incorrects");
+        setError(data.message || t('auth.invalidCredentials'));
       }
     } catch (err) {
-      setError("Erreur de connexion au serveur");
-      console.log(err);
+      setError(t('auth.serverError'));
+      console.error("Erreur de connexion:", err);
     } finally {
       setIsLoading(false);
     }
@@ -77,12 +77,12 @@ const UserLogin: React.FC = () => {
       <div className="space-y-2">
         <Label htmlFor="email" className="flex items-center space-x-2">
           <Mail className="h-4 w-4" />
-          <span>Email</span>
+          <span>{t('auth.email')}</span>
         </Label>
         <Input
           id="email"
           type="email"
-          placeholder="votre.email@example.com"
+          placeholder={t('auth.emailPlaceholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={isLoading}
@@ -93,12 +93,12 @@ const UserLogin: React.FC = () => {
       <div className="space-y-2">
         <Label htmlFor="password" className="flex items-center space-x-2">
           <Lock className="h-4 w-4" />
-          <span>Mot de passe</span>
+          <span>{t('auth.password')}</span>
         </Label>
         <Input
           id="password"
           type="password"
-          placeholder="••••••••"
+          placeholder={t('auth.passwordPlaceholder')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           disabled={isLoading}
@@ -115,18 +115,18 @@ const UserLogin: React.FC = () => {
         {isLoading ? (
           <>
             <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-            Connexion...
+            {t('auth.connecting')}
           </>
         ) : (
           <>
             <LogIn className="h-4 w-4 mr-2" />
-            Se connecter
+            {t('auth.login')}
           </>
         )}
       </Button>
 
       <div className="text-center text-sm text-muted-foreground">
-        <p>Utilisez vos identifiants WHO pour accéder à la plateforme</p>
+        <p>{t('auth.whoCredentials')}</p>
       </div>
     </form>
   );

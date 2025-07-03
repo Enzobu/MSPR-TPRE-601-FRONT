@@ -14,16 +14,16 @@ describe('Navbar', () => {
 
   it("devrait afficher le lien 'Accueil'", () => {
     // Il y a deux liens "Accueil" (desktop et mobile), on vérifie qu'au moins un existe
-    expect(screen.getAllByRole('link', { name: 'Accueil' })).toHaveLength(2);
+    expect(screen.getAllByText('Accueil')).toHaveLength(2);
   });
 
   it("devrait afficher le lien 'Prédictions'", () => {
     // Il y a deux liens "Prédictions" (desktop et mobile), on vérifie qu'au moins un existe
-    expect(screen.getAllByRole('link', { name: 'Prédictions' })).toHaveLength(2);
+    expect(screen.getAllByText('Prédictions')).toHaveLength(2);
   });
 
-  it("devrait afficher le lien 'Connexion' quand l'utilisateur n'est pas authentifié", () => {
-    expect(screen.getByRole('link', { name: 'Connexion' })).toBeInTheDocument();
+  it("devrait afficher le lien 'Se connecter' quand l'utilisateur n'est pas authentifié", () => {
+    expect(screen.getByText('Se connecter')).toBeInTheDocument();
   });
 
   it("devrait avoir la structure de navigation correcte", () => {

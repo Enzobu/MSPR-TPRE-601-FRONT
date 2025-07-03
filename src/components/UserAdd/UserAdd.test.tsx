@@ -27,6 +27,6 @@ describe('UserAdd', () => {
     const mockOnCancel = () => {};
     
     render(<UserAdd onSuccess={mockOnSuccess} onCancel={mockOnCancel} />);
-    expect(screen.getByText('Créer l\'utilisateur')).toBeInTheDocument();
+    expect(screen.getByText('forms.createUser')).toBeInTheDocument();
   });
 }); 

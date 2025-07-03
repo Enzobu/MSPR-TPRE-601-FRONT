@@ -36,6 +36,6 @@ describe('UserEdit', () => {
     const mockOnUpdate = () => {};
     
     render(<UserEdit user={mockUser} onClose={mockOnClose} onUpdate={mockOnUpdate} />);
-    expect(screen.getByText('Modifier l\'utilisateur')).toBeInTheDocument();
+    expect(screen.getByText('users.editUser')).toBeInTheDocument();
   });
 }); 

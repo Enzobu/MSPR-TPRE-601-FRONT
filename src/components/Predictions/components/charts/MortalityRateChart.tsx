@@ -1,6 +1,7 @@
 import type { TooltipItem } from "chart.js";
 import React from "react";
 import { Line } from "react-chartjs-2";
+import { useTranslation } from 'react-i18next';
 
 interface MortalityRateData {
   [date: string]: number;
@@ -23,6 +24,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
   mortalityData,
   countryName,
 }) => {
+  const { t } = useTranslation();
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -47,7 +49,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
     datasets: [
       // Données historiques (bleu)
       {
-        label: `Taux de mortalité historique - ${countryName}`,
+        label: t('charts.mortalityHistorical', { country: countryName }),
         data: transformedData.map((item) => {
           const date = new Date(item.date);
           return date <= today ? item.rate : null;
@@ -62,7 +64,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
       },
       // Données futures (rouge)
       {
-        label: `Taux de mortalité prédit - ${countryName}`,
+        label: t('charts.mortalityPredicted', { country: countryName }),
         data: transformedData.map((item) => {
           const date = new Date(item.date);
           return date > today ? item.rate : null;
@@ -93,7 +95,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
       },
       title: {
         display: true,
-        text: `Évolution du taux de mortalité - ${countryName}`,
+        text: t('charts.mortalityEvolution', { country: countryName }),
         font: {
           size: 16,
           weight: "bold" as const,
@@ -109,7 +111,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
         beginAtZero: true,
         title: {
           display: true,
-          text: "Taux de mortalité",
+          text: t('charts.mortalityRate'),
         },
         ticks: {
           callback: function (value: any) {
@@ -120,7 +122,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
       x: {
         title: {
           display: true,
-          text: "Date",
+          text: t('common.date'),
         },
       },
     },

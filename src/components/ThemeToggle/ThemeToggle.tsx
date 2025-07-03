@@ -2,8 +2,10 @@ import React from 'react';
 import { Moon, Sun, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 const ThemeToggle: React.FC = () => {
+  const { t } = useTranslation();
   const { theme, setTheme } = useTheme();
 
   const cycleTheme = () => {
@@ -32,13 +34,13 @@ const ThemeToggle: React.FC = () => {
   const getTooltip = () => {
     switch (theme) {
       case 'light':
-        return 'Mode clair';
+        return t('settings.lightMode');
       case 'dark':
-        return 'Mode sombre';
+        return t('settings.darkMode');
       case 'system':
-        return 'Mode système';
+        return t('settings.systemMode');
       default:
-        return 'Mode clair';
+        return t('settings.lightMode');
     }
   };
 
@@ -51,7 +53,7 @@ const ThemeToggle: React.FC = () => {
       title={getTooltip()}
     >
       {getIcon()}
-      <span className="sr-only">Changer le thème</span>
+      <span className="sr-only">{t('theme.changeTheme')}</span>
     </Button>
   );
 };

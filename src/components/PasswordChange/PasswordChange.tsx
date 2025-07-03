@@ -1,8 +1,10 @@
 import { useState } from "react";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import useLoggedUser from "../../hooks/useLoggedUser";
+import { useTranslation } from 'react-i18next';
 
 const PasswordChange = () => {
+  const { t } = useTranslation();
   const authHeader = useAuthHeader();
   const { user } = useLoggedUser();
 
@@ -32,12 +34,12 @@ const PasswordChange = () => {
     const { newPassword, confirmPassword } = formData;
 
     if (!newPassword || newPassword.length < 8) {
-      setError("Le nouveau mot de passe doit contenir au moins 8 caractères.");
+      setError(t('forms.passwordMinLength'));
       return;
     }
 
     if (newPassword !== confirmPassword) {
-      setError("Les mots de passe ne correspondent pas.");
+      setError(t('validation.passwordsDoNotMatch'));
       return;
     }
 
@@ -58,12 +60,12 @@ const PasswordChange = () => {
         }
       );
 
-      if (!res.ok) throw new Error("Échec de la mise à jour du mot de passe.");
+      if (!res.ok) throw new Error(t('forms.passwordUpdateFailed'));
 
-      setSuccess("Mot de passe mis à jour avec succès.");
+      setSuccess(t('forms.passwordUpdateSuccess'));
       setFormData({ oldPassword: "", newPassword: "", confirmPassword: "" });
     } catch (err) {
-      setError("Erreur lors de la mise à jour. Veuillez réessayer.");
+      setError(t('forms.updateError'));
     } finally {
       setLoading(false);
     }
@@ -71,11 +73,11 @@ const PasswordChange = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Changer le mot de passe</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">{t('sections.changePassword')}</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="oldPassword" className="block mb-1 font-medium">
-            Ancien mot de passe
+            {t('forms.currentPassword')}
           </label>
           <input
             id="oldPassword"
@@ -90,7 +92,7 @@ const PasswordChange = () => {
 
         <div>
           <label htmlFor="newPassword" className="block mb-1 font-medium">
-            Nouveau mot de passe
+            {t('forms.newPassword')}
           </label>
           <input
             id="newPassword"
@@ -105,7 +107,7 @@ const PasswordChange = () => {
 
         <div>
           <label htmlFor="confirmPassword" className="block mb-1 font-medium">
-            Confirmer le nouveau mot de passe
+            {t('forms.confirmPassword')}
           </label>
           <input
             id="confirmPassword"
@@ -123,7 +125,7 @@ const PasswordChange = () => {
           disabled={loading}
           className="w-full py-2 px-4 rounded-lg border border-gray-400 hover:bg-gray-100 transition"
         >
-          {loading ? "Mise à jour..." : "Mettre à jour"}
+          {loading ? t('forms.updating') : t('forms.update')}
         </button>
 
         {error && (

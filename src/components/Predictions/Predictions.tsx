@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, AlertCircle } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import { countryTranslations } from "../../data/countryTranslations";
 import { useCountries } from "./hooks/useCountries";
 import { useTransmission } from "./hooks/useTransmission";
@@ -41,6 +42,7 @@ ChartJS.register(
 );
 
 const Transmission: React.FC = () => {
+  const { t } = useTranslation();
   const { countries } = useCountries();
   const {
     transmissionRate,
@@ -95,10 +97,10 @@ const Transmission: React.FC = () => {
         {/* En-tête */}
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">
-            Prédictions de Santé
+            {t('predictions.title')}
           </h1>
           <p className="text-muted-foreground">
-            Analysez les tendances et prédictions de santé publique par pays
+            {t('homepage.subtitle')}
           </p>
         </div>
 
@@ -122,7 +124,7 @@ const Transmission: React.FC = () => {
               <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0" />
               <div>
                 <p className="font-medium text-destructive">
-                  Erreur lors de la génération
+                  {t('errors.generic')}
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {transmissionError && `Prédictions: ${transmissionError}`}
@@ -147,10 +149,10 @@ const Transmission: React.FC = () => {
               )}
               {/* Affichage d'un état de chargement ou d'erreur pour les métriques */}
               {metricsLoading && (
-                <div className="text-center text-muted-foreground">Chargement des métriques...</div>
+                <div className="text-center text-muted-foreground">{t('controls.loadingMetrics')}</div>
               )}
               {metricsError && (
-                <div className="text-center text-destructive">Erreur métriques : {metricsError}</div>
+                <div className="text-center text-destructive">{t('controls.metricsError', { error: metricsError })}</div>
               )}
 
               {/* Graphique des prédictions */}
@@ -158,13 +160,13 @@ const Transmission: React.FC = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
-                      <span>Évolution du taux de transmissions</span>
+                      <span>{t('charts.transmissionEvolution', { country: selectedCountryNameFr })}</span>
                       <Badge variant="outline">
-                        {transmissionRate.transmission_rate.length} points de données
+                        {transmissionRate.transmission_rate.length} {t('homepage.dataPoints')}
                       </Badge>
                     </CardTitle>
                     <CardDescription>
-                      Visualisation du taux de transmission pour {selectedCountryNameFr}
+                      {t('predictions.transmissionRate')} - {selectedCountryNameFr}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -181,14 +183,13 @@ const Transmission: React.FC = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
-                      <span>Évolution du taux de mortalité</span>
+                      <span>{t('charts.mortalityEvolution', { country: selectedCountryNameFr })}</span>
                       <Badge variant="outline">
-                        {mortalityData.mortality_rate.length} points de données
+                        {mortalityData.mortality_rate.length} {t('homepage.dataPoints')}
                       </Badge>
                     </CardTitle>
                     <CardDescription>
-                      Visualisation du taux de mortalité pour{" "}
-                      {selectedCountryNameFr}
+                      {t('predictions.mortalityRate')} - {selectedCountryNameFr}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -216,10 +217,10 @@ const Transmission: React.FC = () => {
               <CardContent className="text-center py-8">
                 <TrendingUp className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">
-                  Aucune donnée disponible
+                  {t('predictions.noData')}
                 </h3>
                 <p className="text-muted-foreground">
-                  Aucune donnée trouvée pour les paramètres sélectionnés
+                  {t('predictions.noData')}
                 </p>
               </CardContent>
             </Card>

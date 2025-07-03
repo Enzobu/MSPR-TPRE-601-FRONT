@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { User, Settings as SettingsIcon, Lock, Users, LogOut, Shield, UserCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout/Layout';
 import useLoggedUser from '../../hooks/useLoggedUser';
 import UserProfile from '../../components/UserProfile/UserProfile';
@@ -18,6 +19,7 @@ import avatarIcon from '../../assets/default-profile-avatar.png';
 type ActiveSection = "Informations" | "Mot de passe" | "Paramètres" | "Utilisateurs";
 
 const ProfilePage: React.FC = () => {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<ActiveSection>("Informations");
   const signOut = useSignOut();
   const navigate = useNavigate();
@@ -40,8 +42,8 @@ const ProfilePage: React.FC = () => {
         return user?.isAdmin ? <AllUsers /> : (
           <div className="text-center py-8">
             <Shield className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold">Accès refusé</h3>
-            <p className="text-muted-foreground">Vous devez être administrateur pour accéder à cette section.</p>
+            <h3 className="text-lg font-semibold">{t('accessControl.accessDenied')}</h3>
+            <p className="text-muted-foreground">{t('accessControl.adminRequired')}</p>
           </div>
         );
       default:
@@ -52,27 +54,27 @@ const ProfilePage: React.FC = () => {
   const menuItems = [
     { 
       key: "Informations" as const, 
-      label: "Informations personnelles", 
+      label: t('sections.personalInfo'), 
       icon: User,
-      description: "Gérez vos informations de profil"
+      description: t('sections.manageProfile')
     },
     { 
       key: "Mot de passe" as const, 
-      label: "Sécurité", 
+      label: t('sections.security'), 
       icon: Lock,
-      description: "Modifiez votre mot de passe"
+      description: t('sections.changePassword')
     },
          { 
        key: "Paramètres" as const, 
-       label: "Préférences", 
+       label: t('sections.preferences'), 
        icon: SettingsIcon,
-       description: "Configurez vos préférences"
+       description: t('sections.configurePreferences')
      },
     ...(user?.isAdmin ? [{ 
       key: "Utilisateurs" as const, 
-      label: "Gestion utilisateurs", 
+      label: t('sections.userManagement'), 
       icon: Users,
-      description: "Administrez les comptes utilisateurs"
+      description: t('sections.manageUsers')
     }] : []),
   ];
 
@@ -84,7 +86,7 @@ const ProfilePage: React.FC = () => {
             <CardContent className="flex items-center justify-center py-8">
               <div className="text-center">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-                <p className="text-muted-foreground">Chargement de votre profil...</p>
+                <p className="text-muted-foreground">{t('profile.loading')}</p>
               </div>
             </CardContent>
           </Card>
@@ -101,8 +103,8 @@ const ProfilePage: React.FC = () => {
             <CardContent className="flex items-center justify-center py-8">
               <div className="text-center">
                 <div className="text-destructive text-2xl mb-4">⚠️</div>
-                <h3 className="text-lg font-semibold text-destructive mb-2">Erreur de chargement</h3>
-                <p className="text-muted-foreground">Une erreur est survenue : {error}</p>
+                <h3 className="text-lg font-semibold text-destructive mb-2">{t('errors.loadingError')}</h3>
+                <p className="text-muted-foreground">{t('errors.generic')} : {error}</p>
               </div>
             </CardContent>
           </Card>
@@ -116,8 +118,8 @@ const ProfilePage: React.FC = () => {
       <div className="container mx-auto py-8">
         {/* En-tête */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold tracking-tight mb-2">Profil utilisateur</h1>
-          <p className="text-muted-foreground">Gérez vos informations personnelles et paramètres de compte</p>
+          <h1 className="text-3xl font-bold tracking-tight mb-2">{t('profile.title')}</h1>
+          <p className="text-muted-foreground">{t('accessControl.personalInfoDescription')}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -138,7 +140,7 @@ const ProfilePage: React.FC = () => {
                     </h3>
                     <Badge variant={user?.isAdmin ? "default" : "secondary"} className="flex items-center gap-1">
                       {user?.isAdmin ? <Shield className="h-3 w-3" /> : <UserCheck className="h-3 w-3" />}
-                      {user?.isAdmin ? "Administrateur" : "Utilisateur"}
+                      {user?.isAdmin ? t('userProfile.administrator') : t('userProfile.user')}
                     </Badge>
                   </div>
                 </div>
@@ -177,7 +179,7 @@ const ProfilePage: React.FC = () => {
                     onClick={handleLogout}
                   >
                     <LogOut className="h-4 w-4 mr-2" />
-                    Se déconnecter
+                    {t('navigation.logout')}
                   </Button>
                 </div>
               </CardContent>
