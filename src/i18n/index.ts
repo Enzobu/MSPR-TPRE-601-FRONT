@@ -35,7 +35,6 @@ i18n
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
-      checkWhitelist: true,
     },
 
     supportedLngs: ['fr', 'en', 'de'],

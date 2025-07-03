@@ -34,7 +34,7 @@ describe('UserProfile', () => {
     });
 
     render(<UserProfile />);
-    expect(screen.getByText((content, element) => {
+    expect(screen.getByText((content) => {
       return content.includes('Une erreur s\'est produite') && content.includes('Une erreur est survenue');
     })).toBeInTheDocument();
   });
