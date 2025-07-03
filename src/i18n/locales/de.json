@@ -55,6 +55,16 @@
     "confirmNewPassword": "Neues Passwort bestätigen",
     "passwordChanged": "Passwort erfolgreich geändert"
   },
+  "app": {
+    "title": "AnalyzeIt",
+    "subtitle": "WHO Platform",
+    "description": "Plattform für prädiktive Gesundheitsanalyse",
+    "copyright": "© 2024 AnalyzeIt - World Health Organization",
+    "securityNote": "Sichere Plattform für die Analyse von Gesundheitsdaten",
+    "backToHome": "Zurück zur Startseite",
+    "whoLogo": "WHO Logo",
+    "loginDescription": "Greifen Sie auf Ihr Konto zu, um Analysetools zu verwenden"
+  },
   "users": {
     "title": "Benutzerverwaltung",
     "addUser": "Benutzer hinzufügen",

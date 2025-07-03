@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -9,6 +10,8 @@ import whoEmblem from '../../assets/who-emblem.svg';
 import whoBackground from '../../assets/who_background.jpg';
 
 const LoginPage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative">
       {/* Background */}
@@ -25,26 +28,26 @@ const LoginPage: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <img src={whoEmblem} alt="WHO Logo" className="h-12 w-12" />
+            <img src={whoEmblem} alt={t('app.whoLogo')} className="h-12 w-12" />
             <div>
-              <h1 className="text-2xl font-bold text-primary">AnalyzeIt</h1>
+              <h1 className="text-2xl font-bold text-primary">{t('app.title')}</h1>
               <Badge variant="outline" className="text-xs">
                 <Activity className="h-3 w-3 mr-1" />
-                WHO Platform
+                {t('app.subtitle')}
               </Badge>
             </div>
           </div>
           <p className="text-muted-foreground">
-            Plateforme d'analyse prédictive en santé publique
+            {t('app.description')}
           </p>
         </div>
 
         {/* Login Card */}
         <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
           <CardHeader className="text-center">
-            <CardTitle className="text-xl">Connexion</CardTitle>
+            <CardTitle className="text-xl">{t('auth.loginTitle')}</CardTitle>
             <CardDescription>
-              Accédez à votre compte pour utiliser les outils d'analyse
+              {t('app.loginDescription')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -57,15 +60,15 @@ const LoginPage: React.FC = () => {
           <Button variant="ghost" asChild className="text-muted-foreground">
             <Link to="/" className="flex items-center space-x-2">
               <ArrowLeft className="h-4 w-4" />
-              <span>Retour à l'accueil</span>
+              <span>{t('app.backToHome')}</span>
             </Link>
           </Button>
         </div>
 
         {/* Footer */}
         <div className="text-center mt-8 text-xs text-muted-foreground">
-          <p>© 2024 AnalyzeIt - World Health Organization</p>
-          <p>Plateforme sécurisée pour l'analyse de données de santé publique</p>
+          <p>{t('app.copyright')}</p>
+          <p>{t('app.securityNote')}</p>
         </div>
       </div>
     </div>

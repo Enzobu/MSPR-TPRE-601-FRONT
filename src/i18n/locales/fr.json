@@ -55,6 +55,16 @@
     "confirmNewPassword": "Confirmer le nouveau mot de passe",
     "passwordChanged": "Mot de passe modifié avec succès"
   },
+  "app": {
+    "title": "AnalyzeIt",
+    "subtitle": "WHO Platform",
+    "description": "Plateforme d'analyse prédictive en santé publique",
+    "copyright": "© 2024 AnalyzeIt - World Health Organization",
+    "securityNote": "Plateforme sécurisée pour l'analyse de données de santé publique",
+    "backToHome": "Retour à l'accueil",
+    "whoLogo": "WHO Logo",
+    "loginDescription": "Accédez à votre compte pour utiliser les outils d'analyse"
+  },
   "users": {
     "title": "Gestion des utilisateurs",
     "addUser": "Ajouter un utilisateur",
