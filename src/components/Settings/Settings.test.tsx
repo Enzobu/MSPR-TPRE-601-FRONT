@@ -18,8 +18,8 @@ describe("Settings", () => {
     render(<Settings />);
   });
 
-  it("devrait afficher le titre 'Paramètres du compte'", () => {
-    expect(screen.getByText("Paramètres du compte")).toBeInTheDocument();
+  it("devrait afficher le titre 'Paramètres'", () => {
+    expect(screen.getByText("Paramètres")).toBeInTheDocument();
   });
 
   it("devrait afficher la case à cocher pour les notifications", () => {
@@ -27,12 +27,12 @@ describe("Settings", () => {
   });
 
   it("devrait afficher la case à cocher pour le thème sombre", () => {
-    expect(screen.getByLabelText("Thème sombre :")).toBeInTheDocument();
+    expect(screen.getByLabelText("Sombre :")).toBeInTheDocument();
   });
 
-  it("devrait afficher le bouton 'Enregistrer les modifications'", () => {
+  it("devrait afficher le bouton 'Enregistrer les paramètres'", () => {
     expect(
-      screen.getByRole("button", { name: "Enregistrer les modifications" })
+      screen.getByRole("button", { name: "Enregistrer les paramètres" })
     ).toBeInTheDocument();
   });
 });

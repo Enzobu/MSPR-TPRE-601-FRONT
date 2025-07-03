@@ -2,6 +2,23 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import TransmissionRateChart from "./TransmissionRateChart";
 
+// Mock de react-i18next
+vi.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string, options?: { country?: string }) => {
+      const translations: { [key: string]: string } = {
+        "charts.transmissionEvolution": `Évolution du taux de transmission - ${options?.country || ""}`,
+        "charts.historicalData": `Données historiques - ${options?.country || ""}`,
+        "charts.transmissionPredicted": `Taux de transmission prédit - ${options?.country || ""}`,
+        "charts.transmissionRate": "Taux de transmission",
+        "common.date": "Date"
+      };
+      return translations[key] || key;
+    }
+  }),
+  I18nextProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 // Mock de react-chartjs-2
 vi.mock("react-chartjs-2", () => ({
   Line: ({ data, options }: any) => (
@@ -12,7 +29,7 @@ vi.mock("react-chartjs-2", () => ({
   ),
 }));
 
-describe("PredictionChart", () => {
+describe("TransmissionRateChart", () => {
   const mockTransmission = {
     country_id: "1",
     disease_id: "1",

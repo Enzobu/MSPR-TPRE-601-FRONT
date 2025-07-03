@@ -32,7 +32,7 @@ describe('HomePage', () => {
   });
 
   it("devrait afficher le titre principal 'AnalyzeIt'", () => {
-    expect(screen.getByRole('heading', { name: /analyzeit prédictions santé/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /analyzeit tableau de bord épidémiologique/i })).toBeInTheDocument();
   });
 
   it("devrait afficher le premier lien de navigation 'Accueil'", () => {
@@ -41,8 +41,8 @@ describe('HomePage', () => {
     expect(accueilLinks[0]).toBeInTheDocument();
   });
 
-  it("devrait afficher le lien 'Mon compte'", () => {
-    expect(screen.getByRole('link', { name: /mon compte/i })).toBeInTheDocument();
+  it("devrait afficher le lien 'Profil'", () => {
+    expect(screen.getByRole('link', { name: /profil/i })).toBeInTheDocument();
   });
 
   it("devrait afficher le bouton de changement de thème", () => {
@@ -54,7 +54,7 @@ describe('HomePage', () => {
   });
 
   it("devrait afficher les fonctionnalités principales", () => {
-    expect(screen.getByText('Fonctionnalités Principales')).toBeInTheDocument();
+    expect(screen.getByText('Fonctionnalités')).toBeInTheDocument();
   });
 
   it("devrait avoir le titre principal en tant qu'élément h1", () => {

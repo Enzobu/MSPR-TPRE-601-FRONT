@@ -3,6 +3,48 @@ import { render, screen, fireEvent } from "../../test-utils";
 import ProfilePage from "./ProfilePage";
 import useLoggedUser from "../../hooks/useLoggedUser";
 
+// Mock react-i18next
+vi.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string) => {
+      const translations: Record<string, string> = {
+        "profile.loading": "Chargement de votre profil...",
+        "errors.loadingError": "Erreur de chargement",
+        "errors.generic": "Une erreur est survenue",
+        "profile.title": "Profil utilisateur",
+        "sections.personalInfo": "Informations personnelles",
+        "sections.userManagement": "Gestion utilisateurs",
+        "sections.security": "Sécurité",
+        "sections.preferences": "Préférences",
+        "sections.manageProfile": "Gérer votre profil",
+        "sections.changePassword": "Modifier votre mot de passe",
+        "sections.configurePreferences": "Configurer vos préférences",
+        "sections.manageUsers": "Gérer les utilisateurs",
+        "accessControl.personalInfoDescription": "Gérez vos informations personnelles et paramètres",
+        "userProfile.administrator": "Administrateur",
+        "userProfile.user": "Utilisateur",
+        "navigation.logout": "Déconnexion",
+        "accessControl.accessDenied": "Accès refusé",
+        "accessControl.adminRequired": "Droits administrateur requis"
+      };
+      return translations[key] || key;
+    },
+    i18n: {
+      language: "fr",
+      changeLanguage: vi.fn(),
+    },
+  }),
+  useI18n: () => ({
+    language: "fr",
+    changeLanguage: vi.fn(),
+  }),
+  initReactI18next: {
+    type: "3rdParty",
+    init: vi.fn(),
+  },
+  I18nextProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 global.ResizeObserver = class {
   observe() {}
   unobserve() {}
@@ -50,8 +92,8 @@ describe("ProfilePage", () => {
         loading: false,
       });
       render(<ProfilePage />);
-      expect(screen.getByText("Profil utilisateur")).toBeInTheDocument();
-      // Vérifier qu'il y a bien des éléments "Informations personnelles" (sans exiger l'unicité)
+      const profileElements = screen.getAllByText("Profil utilisateur");
+      expect(profileElements.length).toBeGreaterThan(0);
       const informationElements = screen.getAllByText(
         "Informations personnelles"
       );

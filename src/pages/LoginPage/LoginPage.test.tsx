@@ -40,6 +40,10 @@ describe('LoginPage', () => {
     it('devrait afficher le copyright', () => {
       expect(screen.getByText('© 2024 AnalyzeIt - World Health Organization')).toBeInTheDocument();
     });
+
+    it('devrait afficher la note de sécurité', () => {
+      expect(screen.getByText('Plateforme sécurisée pour l\'analyse de données de santé publique')).toBeInTheDocument();
+    });
   });
 
   describe('formulaire de connexion', () => {
