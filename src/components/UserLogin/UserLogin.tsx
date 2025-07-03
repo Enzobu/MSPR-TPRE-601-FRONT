@@ -60,7 +60,7 @@ const UserLogin: React.FC = () => {
       }
     } catch (err) {
       setError("Erreur de connexion au serveur");
-      console.log(err);
+      console.error("Erreur de connexion:", err);
     } finally {
       setIsLoading(false);
     }
