@@ -4,6 +4,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import HomePage from "./pages/HomePage/HomePage";
 import RequireAuth from "./components/AuthGuard/AuthGuard";
 import Predictions from "./components/Predictions/Predictions";
+import VoiceControlButton from "./components/VoiceControl/VoiceControlButton";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           }
         />
       </Routes>
+      
+      {/* Bouton flottant de contrôle vocal */}
+      <VoiceControlButton />
     </>
   );
 }

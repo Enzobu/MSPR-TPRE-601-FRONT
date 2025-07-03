@@ -30,6 +30,7 @@ import MortalityRateChart from "./components/charts/MortalityRateChart";
 import TransmissionControls from "./components/TransmissionControls";
 import Layout from "../Layout/Layout";
 import { useMetrics } from "./hooks/useMetrics";
+import VoiceControl from "../VoiceControl/VoiceControl";
 
 ChartJS.register(
   CategoryScale,
@@ -85,6 +86,32 @@ const Transmission: React.FC = () => {
     fetchMortalityRate(startDate, endDate, countryId);
   };
 
+  // Callbacks pour le contrôle vocal
+  const handleVoiceDateSelect = (type: 'start' | 'end', date: string) => {
+    if (type === 'start') {
+      setStartDate(date);
+    } else {
+      setEndDate(date);
+    }
+  };
+
+  const handleVoiceCountrySelect = (countryName: string) => {
+    const country = countries.find(c => 
+      c.name.toLowerCase() === countryName.toLowerCase() ||
+      (countryTranslations[c.name.toLowerCase()] && 
+       countryTranslations[c.name.toLowerCase()].toLowerCase() === countryName.toLowerCase())
+    );
+    if (country) {
+      setSelectedCountry(country.id_country);
+    }
+  };
+
+  const handleVoiceFetchPredictions = () => {
+    if (startDate && endDate && selectedCountry) {
+      handleFetch(startDate, endDate, selectedCountry);
+    }
+  };
+
   useEffect(() => {
     if (selectedCountry) {
       fetchMetrics(selectedCountry);
@@ -115,6 +142,14 @@ const Transmission: React.FC = () => {
           countries={countries}
           onFetch={handleFetch}
           disabled={transmissionLoading || mortalityLoading}
+        />
+
+        {/* Contrôle vocal */}
+        <VoiceControl
+          onDateSelect={handleVoiceDateSelect}
+          onCountrySelect={handleVoiceCountrySelect}
+          onFetchPredictions={handleVoiceFetchPredictions}
+          countries={countries}
         />
 
         {/* Messages d'erreur */}
