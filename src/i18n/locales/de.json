@@ -29,7 +29,8 @@
     "settings": "Einstellungen",
     "profile": "Profil",
     "logout": "Abmelden",
-    "user": "Benutzer"
+    "user": "Benutzer",
+    "monitoring": "Überwachung"
   },
   "auth": {
     "login": "Anmelden",
@@ -336,6 +337,50 @@
   },
   "theme": {
     "changeTheme": "Design ändern"
+  },
+  "monitoring": {
+    "title": "Log-Überwachung",
+    "description": "Echtzeitüberwachung der Anwendungslogs",
+    "filterByCountry": "Nach Land filtern",
+    "allCountries": "Alle Länder",
+    "noData": "Keine Logs verfügbar",
+    "loading": "Logs werden geladen...",
+    "error": "Fehler beim Laden der Daten",
+    "columns": {
+      "date": "Datum",
+      "status": "Status",
+      "country": "Land",
+      "error": "Fehler",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "success": "Erfolgreich",
+      "error": "Fehler"
+    },
+    "refresh": "Aktualisieren",
+    "viewDetails": "Details anzeigen",
+    "search": "Logs durchsuchen...",
+    "showAll": "Alle anzeigen",
+    "showErrors": "Fehler anzeigen",
+    "showSuccess": "Erfolgreiche anzeigen",
+    "totalLogs": "Gesamte Logs",
+    "successfulLogs": "Erfolgreiche Logs",
+    "errorLogs": "Fehler-Logs",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "successRate": "Erfolgsquote",
+    "filterByStatus": "Nach Status filtern",
+    "rowsPerPage": "Zeilen pro Seite",
+    "page": "Seite",
+    "of": "von",
+    "showing": "Zeige",
+    "to": "bis",
+    "entries": "Einträge",
+    "displayBy": "Anzeigen nach",
+    "allEntries": "Alle Einträge",
+    "successOnly": "Nur Erfolgreiche",
+    "errorsOnly": "Nur Fehler",
+    "recentFirst": "Neueste zuerst",
+    "oldestFirst": "Älteste zuerst"
   },
   "dataProtection": {
     "title": "Datensicherheit",

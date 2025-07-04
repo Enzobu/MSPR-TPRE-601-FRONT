@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import RequireAuth from "./components/AuthGuard/AuthGuard";
 import Predictions from "./components/Predictions/Predictions";
 import VoiceControlButton from "./components/VoiceControl/VoiceControlButton";
+import Monitoring from "./components/Monitoring/Monitoring";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
           element={
             <RequireAuth>
               <Predictions />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/monitoring"
+          element={
+            <RequireAuth>
+              <Monitoring />
             </RequireAuth>
           }
         />

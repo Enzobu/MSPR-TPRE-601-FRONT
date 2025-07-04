@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
-import { Activity, User, Home, BarChart3 } from 'lucide-react';
+import { Activity, User, Home, BarChart3, SquareActivity } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import whoEmblem from '../../assets/who-emblem.svg';
 import defaultAvatar from '../../assets/default-profile-avatar.png';
@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { path: '/', label: t('navigation.home'), icon: Home },
     { path: '/predictions', label: t('navigation.predictions'), icon: BarChart3 },
+    { path: '/monitoring', label: t('navigation.monitoring'), icon: SquareActivity },
   ];
 
   const isActive = (path: string) => location.pathname === path;

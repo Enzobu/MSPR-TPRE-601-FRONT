@@ -66,3 +66,21 @@ export interface Prediction {
   population_lower: number;
   population_upper: number;
 }
+
+export interface Log {
+  id_log: number;
+  _date: string;
+  is_success: boolean;
+  error_string: string;
+  country: {
+    id_country: number;
+    name: string;
+    iso_code: string;
+    population: number;
+    pib: number;
+    latitude: number;
+    longitude: number;
+    id_continent: number;
+    id_region: number;
+  };
+}

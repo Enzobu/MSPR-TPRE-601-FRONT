@@ -29,7 +29,8 @@
     "settings": "Settings",
     "profile": "Profile",
     "logout": "Logout",
-    "user": "User"
+    "user": "User",
+    "monitoring": "Monitoring"
   },
   "auth": {
     "login": "Login",
@@ -337,6 +338,50 @@
   },
   "theme": {
     "changeTheme": "Change Theme"
+  },
+  "monitoring": {
+    "title": "Log Monitoring",
+    "description": "Real-time application log monitoring",
+    "filterByCountry": "Filter by country",
+    "allCountries": "All countries",
+    "noData": "No logs available",
+    "loading": "Loading logs...",
+    "error": "Error loading data",
+    "columns": {
+      "date": "Date",
+      "status": "Status",
+      "country": "Country",
+      "error": "Error",
+      "actions": "Actions"
+    },
+    "status": {
+      "success": "Success",
+      "error": "Error"
+    },
+    "refresh": "Refresh",
+    "viewDetails": "View details",
+    "search": "Search logs...",
+    "showAll": "Show all",
+    "showErrors": "Show errors",
+    "showSuccess": "Show success",
+    "totalLogs": "Total logs",
+    "successfulLogs": "Successful logs",
+    "errorLogs": "Error logs",
+    "lastUpdated": "Last updated",
+    "successRate": "Success rate",
+    "filterByStatus": "Filter by status",
+    "rowsPerPage": "Rows per page",
+    "page": "Page",
+    "of": "of",
+    "showing": "Showing",
+    "to": "to",
+    "entries": "entries",
+    "displayBy": "Display by",
+    "allEntries": "All entries",
+    "successOnly": "Success only",
+    "errorsOnly": "Errors only",
+    "recentFirst": "Recent first",
+    "oldestFirst": "Oldest first"
   },
   "dataProtection": {
     "title": "Data Security",
