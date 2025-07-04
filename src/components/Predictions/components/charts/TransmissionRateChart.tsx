@@ -1,6 +1,6 @@
+import { type TooltipItem } from "chart.js";
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { type TooltipItem } from "chart.js";
 import { useTranslation } from 'react-i18next';
 
 interface TransmissionRateData {
@@ -84,7 +84,7 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
     plugins: {
       tooltip: {
         callbacks: {
-          label: function (context: TooltipItem<"line">) {
+          label (context: TooltipItem<"line">) {
             const label = context.dataset.label || "";
             const value = context.parsed.y;
             return `${label}: ${(value * 100).toFixed(2)} %`;
@@ -112,8 +112,8 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
           text: t('charts.transmissionRate'),
         },
         ticks: {
-          callback: function (value: any) {
-            return (value * 100).toFixed(2) + "%";
+          callback (value: any) {
+            return `${(value * 100).toFixed(2)  }%`;
           },
         },
       },

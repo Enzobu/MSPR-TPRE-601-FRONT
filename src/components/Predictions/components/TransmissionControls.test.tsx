@@ -1,7 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import PredictionsControls from './TransmissionControls';
+
 import type { Country } from '../../../types/types';
+
+import PredictionsControls from './TransmissionControls';
 
 // Mock de react-i18next
 vi.mock("react-i18next", () => ({

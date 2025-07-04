@@ -1,7 +1,9 @@
 import { describe, it, expect, vi, type Mock } from "vitest";
-import { render, screen, fireEvent } from "../../test-utils";
-import ProfilePage from "./ProfilePage";
+
 import useLoggedUser from "../../hooks/useLoggedUser";
+import { render, screen, fireEvent } from "../../test-utils";
+
+import ProfilePage from "./ProfilePage";
 
 // Mock react-i18next
 vi.mock("react-i18next", () => ({

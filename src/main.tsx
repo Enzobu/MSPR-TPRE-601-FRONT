@@ -1,10 +1,11 @@
 import { StrictMode } from 'react';
+import AuthProvider from 'react-auth-kit/AuthProvider';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import AuthProvider from 'react-auth-kit/AuthProvider';
+
+import App from './App';
 import store from './auth-config';
 import { ThemeProvider } from './contexts/ThemeContext';
-import App from './App';
 import './index.css';
 import './i18n';
 

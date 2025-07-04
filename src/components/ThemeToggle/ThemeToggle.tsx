@@ -1,8 +1,12 @@
-import React from 'react';
 import { Moon, Sun, Monitor } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useTheme } from '../../contexts/ThemeContext';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { useTheme } from '../../contexts/ThemeContext';
+
+import { Button } from '@/components/ui/button';
+
+
 
 const ThemeToggle: React.FC = () => {
   const { t } = useTranslation();

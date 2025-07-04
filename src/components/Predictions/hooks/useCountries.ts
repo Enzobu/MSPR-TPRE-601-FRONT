@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
-import type { Country } from '../../../types/types';
+
 import { countryTranslations } from '../../../data/countryTranslations';
+import type { Country } from '../../../types/types';
 
 export function useCountries() {
   const [countries, setCountries] = useState<Country[]>([]);

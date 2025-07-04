@@ -1,7 +1,9 @@
 import { describe, it, expect, vi, type Mock } from 'vitest';
-import { render, screen } from '../../test-utils';
-import UserProfile from './UserProfile';
+
 import useLoggedUser from '../../hooks/useLoggedUser';
+import { render, screen } from '../../test-utils';
+
+import UserProfile from './UserProfile';
 
 // Mock du hook useLoggedUser
 vi.mock('../../hooks/useLoggedUser');

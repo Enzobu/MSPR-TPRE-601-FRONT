@@ -1,7 +1,9 @@
 import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
-import { render, screen } from '../../test-utils';
-import PasswordChange from './PasswordChange';
+
 import useLoggedUser from '../../hooks/useLoggedUser';
+import { render, screen } from '../../test-utils';
+
+import PasswordChange from './PasswordChange';
 
 // Mock du hook useLoggedUser
 vi.mock('../../hooks/useLoggedUser');

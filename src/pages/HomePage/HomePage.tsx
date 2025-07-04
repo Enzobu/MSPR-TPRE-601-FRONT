@@ -1,12 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { TrendingUp, Globe, Shield, Users, BarChart3, Activity } from 'lucide-react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Layout from '../../components/Layout/Layout';
+import { Link } from 'react-router-dom';
+
 import whoBackground from '../../assets/who_background.jpg';
+import Layout from '../../components/Layout/Layout';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();

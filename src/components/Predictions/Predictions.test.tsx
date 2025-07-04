@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
 import { render, screen } from '../../test-utils';
+
 import Predictions from './Predictions';
 
 // Mock des données de prédictions

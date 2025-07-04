@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
 import { Mic, MicOff, Volume2, HelpCircle, X, CheckCircle, AlertCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
+import React, { useState } from 'react';
+
 import useVoiceControl from '../../hooks/useVoiceControl';
 import type { Country } from '../../types/types';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
+
 
 interface VoiceControlProps {
   onDateSelect?: (type: 'start' | 'end', date: string) => void;

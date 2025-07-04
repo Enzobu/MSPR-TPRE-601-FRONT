@@ -1,10 +1,13 @@
+import { Plus, Users, Shield, UserCheck, Trash2, Edit, AlertCircle } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Plus, Users, Shield, UserCheck, Trash2, Edit, AlertCircle } from 'lucide-react';
+
 import type { User } from '../../types/types';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+
 
 const UserList: React.FC = () => {
   const { t } = useTranslation();

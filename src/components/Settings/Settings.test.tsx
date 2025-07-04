@@ -1,5 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
+
 import { render, screen } from "../../test-utils";
+
 import Settings from "./Settings";
 
 global.ResizeObserver = class {

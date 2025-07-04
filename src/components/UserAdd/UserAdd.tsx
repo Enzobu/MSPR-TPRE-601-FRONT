@@ -1,6 +1,7 @@
 import { useState } from "react";
-import useCreateUser from "../../hooks/useCreateUser";
 import { useTranslation } from 'react-i18next';
+
+import useCreateUser from "../../hooks/useCreateUser";
 
 interface UserAddProps {
   onSuccess?: () => void;

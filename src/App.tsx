@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import HomePage from "./pages/HomePage/HomePage";
+
 import RequireAuth from "./components/AuthGuard/AuthGuard";
+import Monitoring from "./components/Monitoring/Monitoring";
 import Predictions from "./components/Predictions/Predictions";
 import VoiceControlButton from "./components/VoiceControl/VoiceControlButton";
-import Monitoring from "./components/Monitoring/Monitoring";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   return (

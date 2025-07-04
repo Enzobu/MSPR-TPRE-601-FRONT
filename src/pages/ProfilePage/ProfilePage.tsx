@@ -1,20 +1,24 @@
+import { User, Settings as SettingsIcon, Lock, Users, LogOut, Shield, UserCheck } from 'lucide-react';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import useSignOut from "react-auth-kit/hooks/useSignOut";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import avatarIcon from '../../assets/default-profile-avatar.png';
+import Layout from '../../components/Layout/Layout';
+import UserProfile from '../../components/UserProfile/UserProfile';
+import useLoggedUser from '../../hooks/useLoggedUser';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { User, Settings as SettingsIcon, Lock, Users, LogOut, Shield, UserCheck } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import Layout from '../../components/Layout/Layout';
-import useLoggedUser from '../../hooks/useLoggedUser';
-import UserProfile from '../../components/UserProfile/UserProfile';
+
+
 import PasswordChange from '../../components/PasswordChange/PasswordChange';
 import Settings from '../../components/Settings/Settings';
 import AllUsers from '../../components/UserList/UserList';
-import avatarIcon from '../../assets/default-profile-avatar.png';
 
 type ActiveSection = "Informations" | "Mot de passe" | "Paramètres" | "Utilisateurs";
 

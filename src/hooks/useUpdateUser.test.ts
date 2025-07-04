@@ -1,7 +1,8 @@
 import { renderHook, waitFor, act } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import useUpdateUser from './useUpdateUser';
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+import useUpdateUser from './useUpdateUser';
 
 // Mock de react-auth-kit
 vi.mock('react-auth-kit/hooks/useAuthHeader', () => ({

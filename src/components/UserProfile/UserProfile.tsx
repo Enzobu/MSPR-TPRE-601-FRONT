@@ -1,5 +1,6 @@
-import useLoggedUser from '../../hooks/useLoggedUser';
 import { useTranslation } from 'react-i18next';
+
+import useLoggedUser from '../../hooks/useLoggedUser';
 
 const UserProfile = () => {
   const { t } = useTranslation();
