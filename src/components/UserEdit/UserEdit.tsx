@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import useUpdateUser from "../../hooks/useUpdateUser";
 import { useTranslation } from 'react-i18next';
+
+import useUpdateUser from "../../hooks/useUpdateUser";
 import type { User, EditUserForm } from "../../types/types";
 
 interface EditUserFormProps {

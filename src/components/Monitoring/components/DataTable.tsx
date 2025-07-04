@@ -1,18 +1,3 @@
-import { useState, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../../ui/table';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { Badge } from '../../ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../ui/select';
-import { Card, CardContent, CardHeader, CardTitle } from '../../ui/card';
 import { 
   ChevronDown, 
   ChevronUp, 
@@ -27,7 +12,23 @@ import {
   ArrowUpDown,
   Search
 } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import type { Log } from '../../../types/types';
+import { Badge } from '../../ui/badge';
+import { Button } from '../../ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../../ui/card';
+import { Input } from '../../ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../ui/select';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '../../ui/table';
 
 interface DataTableProps {
   logs: Log[];
@@ -75,7 +76,7 @@ export function DataTable({ logs, countries, loading, error }: DataTableProps) {
   };
 
       const filteredAndSortedLogs = useMemo(() => {
-      let filtered = logs.filter(log => {
+      const filtered = logs.filter(log => {
         const matchesCountry = selectedCountry === 'all' || log.country.id_country.toString() === selectedCountry;
         const matchesStatus = statusFilter === 'all' || 
           (statusFilter === 'success' && log.is_success) ||

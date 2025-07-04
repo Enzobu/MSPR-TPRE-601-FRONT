@@ -1,8 +1,9 @@
-import React from 'react';
 import { render, type RenderOptions } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { I18nextProvider } from 'react-i18next';
+import React from 'react';
 import AuthProvider from 'react-auth-kit/AuthProvider';
+import { I18nextProvider } from 'react-i18next';
+import { BrowserRouter } from 'react-router-dom';
+
 import store from './auth-config';
 import { ThemeProvider } from './contexts/ThemeContext';
 import i18n from './i18n';

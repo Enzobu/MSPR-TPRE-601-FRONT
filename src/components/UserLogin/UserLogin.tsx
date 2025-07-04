@@ -1,11 +1,12 @@
+import { Loader2, Mail, Lock, LogIn } from 'lucide-react';
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Loader2, Mail, Lock, LogIn } from 'lucide-react';
 
 const UserLogin: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -46,7 +47,7 @@ const UserLogin: React.FC = () => {
             type: "Bearer",
           },
           userState: {
-            email: email,
+            email,
           },
         });
 

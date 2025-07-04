@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
 import { render, screen, fireEvent, waitFor } from '../../../test-utils';
+
 import { DataTable } from './DataTable';
 
 // Mock des données de logs pour les tests

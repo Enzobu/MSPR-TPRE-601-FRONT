@@ -1,5 +1,6 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+
 import UserEdit from './UserEdit';
 
 // Mock de React pour éviter les erreurs de hooks

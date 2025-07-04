@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
+
 import type { Log } from "../types/types";
 
 interface UseLogsProps {

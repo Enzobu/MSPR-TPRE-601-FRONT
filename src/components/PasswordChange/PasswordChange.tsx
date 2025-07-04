@@ -1,7 +1,8 @@
 import { useState } from "react";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import useLoggedUser from "../../hooks/useLoggedUser";
 import { useTranslation } from 'react-i18next';
+
+import useLoggedUser from "../../hooks/useLoggedUser";
 
 const PasswordChange = () => {
   const { t } = useTranslation();

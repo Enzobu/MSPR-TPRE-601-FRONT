@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
 import { render, screen, waitFor } from '../../test-utils';
+
 import UserList from './UserList';
 
 // Mock des hooks d'authentification si nécessaire

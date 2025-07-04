@@ -1,11 +1,13 @@
+import { RefreshCw } from 'lucide-react';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Button } from '../ui/button';
-import Layout from '../Layout/Layout';
-import { RefreshCw } from 'lucide-react';
+
 import useLogs from '../../hooks/useLogs';
+import Layout from '../Layout/Layout';
 import { useCountries } from '../Predictions/hooks/useCountries';
+import { Button } from '../ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+
 import { DataTable } from './components/DataTable';
 
 export default function Monitoring() {

@@ -1,5 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+
 import { render, screen } from '../../test-utils';
+
 import UserRegister from './UserRegister';
 
 // Mock de React pour éviter les erreurs de hooks

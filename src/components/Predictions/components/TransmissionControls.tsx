@@ -1,17 +1,19 @@
-import React from 'react';
 import { format, addDays } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Calendar as CalendarIcon, MapPin } from 'lucide-react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import type { Country } from '../../../types/types';
+
 import { countryTranslations } from '../../../data/countryTranslations';
+import type { Country } from '../../../types/types';
 import { capitalize } from '../utils/capitalize';
+
 import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 
 interface TransmissionControlsProps {

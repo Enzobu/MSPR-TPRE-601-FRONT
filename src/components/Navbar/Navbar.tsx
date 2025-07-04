@@ -1,16 +1,18 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { Activity, User, Home, BarChart3, SquareActivity } from 'lucide-react';
+import React from 'react';
+import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { useTranslation } from 'react-i18next';
-import whoEmblem from '../../assets/who-emblem.svg';
+import { Link, useLocation } from 'react-router-dom';
+
 import defaultAvatar from '../../assets/default-profile-avatar.png';
+import whoEmblem from '../../assets/who-emblem.svg';
 import useLoggedUser from '../../hooks/useLoggedUser';
-import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();

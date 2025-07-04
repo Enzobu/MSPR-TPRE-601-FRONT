@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +8,29 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { TrendingUp, AlertCircle } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+
+import { countryTranslations } from "../../data/countryTranslations";
+import Layout from "../Layout/Layout";
+
+import VoiceControl from "../VoiceControl/VoiceControl";
+import MortalityRateChart from "./components/charts/MortalityRateChart";
+import TransmissionRateChart from "./components/charts/TransmissionRateChart";
+import CountrySummary from "./components/CountrySummary";
+import TransmissionControls from "./components/TransmissionControls";
+
+
+import { useCountries } from "./hooks/useCountries";
+import { useMetrics } from "./hooks/useMetrics";
+
+
+import { useMortalityRate } from "./hooks/useMortalityRate";
+import { useTransmission } from "./hooks/useTransmission";
+import { capitalize } from "./utils/capitalize";
+
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -16,21 +38,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { TrendingUp, AlertCircle } from "lucide-react";
-import { useTranslation } from 'react-i18next';
-import { countryTranslations } from "../../data/countryTranslations";
-import { useCountries } from "./hooks/useCountries";
-import { useTransmission } from "./hooks/useTransmission";
-import { useMortalityRate } from "./hooks/useMortalityRate";
-import { capitalize } from "./utils/capitalize";
-import CountrySummary from "./components/CountrySummary";
-import TransmissionRateChart from "./components/charts/TransmissionRateChart";
-import MortalityRateChart from "./components/charts/MortalityRateChart";
-import TransmissionControls from "./components/TransmissionControls";
-import Layout from "../Layout/Layout";
-import { useMetrics } from "./hooks/useMetrics";
-import VoiceControl from "../VoiceControl/VoiceControl";
 
 ChartJS.register(
   CategoryScale,

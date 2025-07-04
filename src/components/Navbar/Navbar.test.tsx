@@ -1,5 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
+
 import { render, screen } from '../../test-utils';
+
 import Navbar from './Navbar';
 
 describe('Navbar', () => {

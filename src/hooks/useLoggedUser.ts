@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { decodeToken } from "react-jwt";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
+import { decodeToken } from "react-jwt";
+
 import type { User, DecodedToken } from "../types/types";
 
 const useLoggedUser = () => {

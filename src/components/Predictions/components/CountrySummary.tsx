@@ -1,15 +1,17 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { MapPin, Users, DollarSign, Globe, Flag, Activity } from 'lucide-react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { getFlagEmojiFromIso3 } from '../../../utils/flagUtils';
+
 import { countryTranslations } from '../../../data/countryTranslations';
-import { capitalize, capitalizeEachWord } from '../utils/capitalize';
 import type { Country } from '../../../types/types';
+import { getFlagEmojiFromIso3 } from '../../../utils/flagUtils';
 import type { Metrics } from '../hooks/useMetrics';
+import { capitalize, capitalizeEachWord } from '../utils/capitalize';
 import { formatNumberWithSpaces } from '../utils/numbers';
+
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 
 interface CountrySummaryProps {
   country: Country;
@@ -163,13 +165,13 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
             <div>
               <span className="font-medium">R2 Pays:</span>{' '}
               <span className="text-muted-foreground">
-              {metrics ? (metrics.r2 * 100).toFixed(2) + ' %' : 'N/A'}
+              {metrics ? `${(metrics.r2 * 100).toFixed(2)  } %` : 'N/A'}
               </span>
             </div>
             <div>
               <span className="font-medium">R2 Continent:</span>{' '}
               <span className="text-muted-foreground">
-              {metrics ? (metrics.continent_r2 * 100).toFixed(2) + ' %' : 'N/A'}
+              {metrics ? `${(metrics.continent_r2 * 100).toFixed(2)  } %` : 'N/A'}
               </span>
             </div>
           </div>
@@ -196,13 +198,13 @@ const CountrySummary: React.FC<CountrySummaryProps> = ({ country, metrics }) => 
             <div>
               <span className="font-medium">R2 Pays bis:</span>{' '}
               <span className="text-muted-foreground">
-              {metrics ? (metrics.r2_bis * 100).toFixed(2) + ' %' : 'N/A'}
+              {metrics ? `${(metrics.r2_bis * 100).toFixed(2)  } %` : 'N/A'}
               </span>
             </div>
             <div>
               <span className="font-medium">R2 Continent bis:</span>{' '}
               <span className="text-muted-foreground">
-              {metrics ? (metrics.continent_r2_bis * 100).toFixed(2) + ' %' : 'N/A'}
+              {metrics ? `${(metrics.continent_r2_bis * 100).toFixed(2)  } %` : 'N/A'}
               </span>
             </div>
           </div>

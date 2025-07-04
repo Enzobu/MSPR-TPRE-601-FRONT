@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
+
 import type { EditUserForm } from "../types/types";
 
 const useUpdateUser = () => {

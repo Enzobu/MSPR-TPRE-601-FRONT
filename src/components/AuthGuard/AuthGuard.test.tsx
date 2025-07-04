@@ -1,10 +1,11 @@
-import { describe, it, expect, vi, type Mock } from 'vitest';
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
-import AuthGuard from './AuthGuard';
-import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import AuthProvider from 'react-auth-kit';
 import createStore from 'react-auth-kit/createStore';
+import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import { describe, it, expect, vi, type Mock } from 'vitest';
+
+import AuthGuard from './AuthGuard';
 
 // Mock du hook
 vi.mock('react-auth-kit/hooks/useIsAuthenticated');

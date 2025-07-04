@@ -86,7 +86,7 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
     plugins: {
       tooltip: {
         callbacks: {
-          label: function (context: TooltipItem<"line">) {
+          label (context: TooltipItem<"line">) {
             const label = context.dataset.label || "";
             const value = context.parsed.y;
             return `${label}: ${(value * 100).toFixed(2)} %`;
@@ -114,8 +114,8 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
           text: t('charts.mortalityRate'),
         },
         ticks: {
-          callback: function (value: any) {
-            return (value * 100).toFixed(2) + "%";
+          callback (value: any) {
+            return `${(value * 100).toFixed(2)  }%`;
           },
         },
       },

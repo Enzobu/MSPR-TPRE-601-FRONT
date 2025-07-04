@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
+
 import TransmissionRateChart from "./TransmissionRateChart";
 
 // Mock de react-i18next

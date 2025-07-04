@@ -1,6 +1,8 @@
-import { Switch } from '@/components/ui/switch';
 import { useTranslation } from 'react-i18next';
+
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+
+import { Switch } from '@/components/ui/switch';
 
 const Settings = () => {
   const { t } = useTranslation();

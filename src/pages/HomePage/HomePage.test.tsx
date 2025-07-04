@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
 import { render, screen } from '../../test-utils';
+
 import HomePage from './HomePage';
 
 vi.mock('../../components/Predictions/hooks/usePredictions', () => ({

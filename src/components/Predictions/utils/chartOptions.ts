@@ -7,7 +7,7 @@ export const chartOptions = {
     },
     tooltip: {
       callbacks: {
-        label: function (context: any) {
+        label (context: any) {
           let label = context.dataset.label || '';
           if (label) {
             label += ': ';
@@ -24,7 +24,7 @@ export const chartOptions = {
     y: {
       beginAtZero: true,
       ticks: {
-        callback: function (value: any) {
+        callback (value: any) {
           return new Intl.NumberFormat('fr-FR').format(value);
         }
       }
