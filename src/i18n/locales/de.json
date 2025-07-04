@@ -328,7 +328,7 @@
     "changePassword": "Passwort ändern",
     "configurePreferences": "Konfigurieren Sie Ihre Einstellungen",
     "userManagement": "Benutzerverwaltung",
-    "manageUsers": "Plattformbenutzer verwalten"    
+    "manageUsers": "Plattformbenutzer verwalten"
   },
   "accessControl": {
     "accessDenied": "Zugriff verweigert",
@@ -389,4 +389,4 @@
   "features": {
     "dashboardsAndCharts": "Diagramme und Dashboards für eine detaillierte Analyse"
   }
-} 
+}

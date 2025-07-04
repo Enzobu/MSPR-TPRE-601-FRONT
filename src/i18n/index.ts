@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import fr from './locales/fr.json';
 import en from './locales/en.json';
 import de from './locales/de.json';
+import it from './locales/it.json';
 
 const resources = {
   fr: {
@@ -15,6 +16,9 @@ const resources = {
   },
   de: {
     translation: de,
+  },
+  it: {
+    translation: it,
   },
 };
 
@@ -37,7 +41,7 @@ i18n
       lookupLocalStorage: 'i18nextLng',
     },
 
-    supportedLngs: ['fr', 'en', 'de'],
+    supportedLngs: ['fr', 'en', 'de', 'it'],
     nonExplicitSupportedLngs: true,
 
     returnObjects: true,
@@ -58,6 +62,7 @@ export const getSupportedLanguages = () => {
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
   ];
 };
 
