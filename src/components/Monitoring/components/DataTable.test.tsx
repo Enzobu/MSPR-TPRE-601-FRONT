@@ -42,7 +42,7 @@ const mockLogs = [
     id_log: 3,
     _date: '2024-01-15T08:45:00Z',
     is_success: true,
-    error_string: null,
+    error_string: '',
     country: {
       id_country: 1,
       name: 'France',
