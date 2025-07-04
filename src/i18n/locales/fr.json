@@ -29,7 +29,8 @@
     "settings": "Paramètres",
     "profile": "Profil",
     "logout": "Déconnexion",
-    "user": "Utilisateur"
+    "user": "Utilisateur",
+    "monitoring": "Monitoring"
   },
   "auth": {
     "login": "Se connecter",
@@ -337,6 +338,50 @@
   },
   "theme": {
     "changeTheme": "Changer le thème"
+  },
+  "monitoring": {
+    "title": "Monitoring des Logs",
+    "description": "Surveillance des logs d'application en temps réel",
+    "filterByCountry": "Filtrer par pays",
+    "allCountries": "Tous les pays",
+    "noData": "Aucun log disponible",
+    "loading": "Chargement des logs...",
+    "error": "Erreur lors du chargement",
+    "columns": {
+      "date": "Date",
+      "status": "Statut",
+      "country": "Pays",
+      "error": "Erreur",
+      "actions": "Actions"
+    },
+    "status": {
+      "success": "Succès",
+      "error": "Erreur"
+    },
+    "refresh": "Actualiser",
+    "viewDetails": "Voir les détails",
+    "search": "Rechercher dans les logs...",
+    "showAll": "Afficher tout",
+    "showErrors": "Afficher les erreurs",
+    "showSuccess": "Afficher les succès",
+    "totalLogs": "Total des logs",
+    "successfulLogs": "Logs réussis",
+    "errorLogs": "Logs d'erreurs",
+    "lastUpdated": "Dernière mise à jour",
+    "successRate": "Taux de succès",
+    "filterByStatus": "Filtrer par statut",
+    "rowsPerPage": "Lignes par page",
+    "page": "Page",
+    "of": "sur",
+    "showing": "Affichage de",
+    "to": "à",
+    "entries": "entrées",
+    "displayBy": "Afficher par",
+    "allEntries": "Toutes les entrées",
+    "successOnly": "Succès seulement",
+    "errorsOnly": "Erreurs seulement",
+    "recentFirst": "Plus récents d'abord",
+    "oldestFirst": "Plus anciens d'abord"
   },
   "dataProtection": {
     "title": "Sécurité des Données",
