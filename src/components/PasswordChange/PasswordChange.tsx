@@ -65,7 +65,7 @@ const PasswordChange = () => {
 
       setSuccess(t('forms.passwordUpdateSuccess'));
       setFormData({ oldPassword: "", newPassword: "", confirmPassword: "" });
-    } catch (err) {
+    } catch {
       setError(t('forms.updateError'));
     } finally {
       setLoading(false);

@@ -28,9 +28,6 @@ const MortalityRateChart: React.FC<MortalityRateChartProps> = ({
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  console.log(mortalityData);
-
-  // Transformer les données pour faciliter le traitement
   const transformedData = mortalityData.mortality_rate.map((item) => {
     const date = Object.keys(item)[0];
     const rate = Object.values(item)[0];

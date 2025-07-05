@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
+import useLogs from '../../hooks/useLogs';
 import { render, screen, fireEvent, waitFor } from '../../test-utils';
 
 import Monitoring from './Monitoring';
 
-// Mock des données de logs
 const mockLogs = [
   {
     id_log: 1,
@@ -95,9 +95,6 @@ vi.mock('../../hooks/useLogs', () => ({
     refetchLogs: mockRefetchLogs,
   })),
 }));
-
-// Import du mock pour le modifier dans les tests
-import useLogs from '../../hooks/useLogs';
 
 // Mock du hook useCountries
 vi.mock('../Predictions/hooks/useCountries', () => ({

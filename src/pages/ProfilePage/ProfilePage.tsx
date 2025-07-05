@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 import avatarIcon from '../../assets/default-profile-avatar.png';
 import Layout from '../../components/Layout/Layout';
+import PasswordChange from '../../components/PasswordChange/PasswordChange';
+import Settings from '../../components/Settings/Settings';
+import AllUsers from '../../components/UserList/UserList';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import useLoggedUser from '../../hooks/useLoggedUser';
 
@@ -16,9 +19,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Separator } from '@/components/ui/separator';
 
 
-import PasswordChange from '../../components/PasswordChange/PasswordChange';
-import Settings from '../../components/Settings/Settings';
-import AllUsers from '../../components/UserList/UserList';
 
 type ActiveSection = "Informations" | "Mot de passe" | "Paramètres" | "Utilisateurs";
 

@@ -14,18 +14,14 @@ import { useTranslation } from 'react-i18next';
 
 import { countryTranslations } from "../../data/countryTranslations";
 import Layout from "../Layout/Layout";
-
 import VoiceControl from "../VoiceControl/VoiceControl";
+
 import MortalityRateChart from "./components/charts/MortalityRateChart";
 import TransmissionRateChart from "./components/charts/TransmissionRateChart";
 import CountrySummary from "./components/CountrySummary";
 import TransmissionControls from "./components/TransmissionControls";
-
-
 import { useCountries } from "./hooks/useCountries";
 import { useMetrics } from "./hooks/useMetrics";
-
-
 import { useMortalityRate } from "./hooks/useMortalityRate";
 import { useTransmission } from "./hooks/useTransmission";
 import { capitalize } from "./utils/capitalize";
