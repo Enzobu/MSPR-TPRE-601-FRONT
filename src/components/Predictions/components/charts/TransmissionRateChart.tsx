@@ -28,9 +28,6 @@ const TransmissionRateChart: React.FC<TransmissionRateChartProps> = ({
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  console.log(transmissionRate);
-
-  // Transformer les données pour faciliter le traitement
   const transformedData = transmissionRate.transmission_rate.map((item) => {
     const date = Object.keys(item)[0];
     const rate = Object.values(item)[0];

@@ -71,7 +71,7 @@ export const useVoiceControl = (props: UseVoiceControlProps = {}): UseVoiceContr
       return tomorrow.toISOString().split('T')[0];
     }
     
-    const dateMatch = text.match(/(\d{1,2})[\/\s](\d{1,2})[\/\s](\d{4})/);
+    const dateMatch = text.match(/(\d{1,2})[\s/](\d{1,2})[\s/](\d{4})/);
     if (dateMatch) {
       const [, day, month, year] = dateMatch;
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
@@ -204,7 +204,7 @@ export const useVoiceControl = (props: UseVoiceControlProps = {}): UseVoiceContr
       timeoutRef.current = setTimeout(() => {
         stopListening();
       }, 30000);
-    } catch (error) {
+    } catch {
       setError('Impossible de démarrer la reconnaissance vocale');
       setIsListening(false);
     }

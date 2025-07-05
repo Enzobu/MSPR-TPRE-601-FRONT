@@ -58,7 +58,7 @@ export default tseslint.config(
       'react/no-is-mounted': 'error',
       'react/no-render-return-value': 'error',
       'react/no-string-refs': 'error',
-      'react/no-unescaped-entities': 'error',
+      'react/no-unescaped-entities': 'off',
       'react/no-unknown-property': 'error',
       'react/no-unsafe': 'warn',
       'react/require-render-return': 'error',

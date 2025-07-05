@@ -31,7 +31,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setAuthHeader(`Bearer ${token}`);
           setIsAuthenticated(true);
         }
-      } catch (error) {
+      } catch {
         // En cas d'erreur de décodage, on considère le token comme invalide
         handleLogout();
       }

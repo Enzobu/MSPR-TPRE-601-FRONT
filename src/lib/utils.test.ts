@@ -8,8 +8,8 @@ describe('cn', () => {
   });
 
   it('devrait gérer les classes conditionnelles', () => {
-    expect(cn('base', true && 'conditional')).toBe('base conditional');
-    expect(cn('base', false && 'conditional')).toBe('base');
+    expect(cn('base', 'conditional')).toBe('base conditional');
+    expect(cn('base', undefined)).toBe('base');
   });
 
   it('devrait gérer les objets conditionnels', () => {
@@ -33,8 +33,8 @@ describe('cn', () => {
     expect(cn(
       'base',
       'static',
-      true && 'conditional',
-      false && 'ignored',
+      'conditional',
+      undefined,
       { active: true, disabled: false },
       ['array1', 'array2']
     )).toBe('base static conditional active array1 array2');

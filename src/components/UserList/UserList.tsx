@@ -30,7 +30,7 @@ const UserList: React.FC = () => {
         ]);
         setLoading(false);
       }, 1000);
-    } catch (err) {
+    } catch {
       setError(t('users.loadingError'));
       setLoading(false);
     }
