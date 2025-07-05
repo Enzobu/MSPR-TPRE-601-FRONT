@@ -81,7 +81,7 @@ describe('useLogs', () => {
     expect(result.current.logs).toEqual(mockLogsResponse);
     expect(result.current.error).toBe(null);
     expect(mockFetch).toHaveBeenCalledWith(
-      'http://qg.enzo-palermo.com:5001/swagger/logs/get',
+      `${import.meta.env.VITE_API_URL}/swagger/logs/get`,
       {
         headers: {
           Authorization: 'Bearer test-token',
@@ -107,7 +107,7 @@ describe('useLogs', () => {
 
     expect(result.current.logs).toEqual([mockLogsResponse[0]]);
     expect(mockFetch).toHaveBeenCalledWith(
-      `http://qg.enzo-palermo.com:5001/swagger/logs/get?id_country=${countryId}`,
+      `${import.meta.env.VITE_API_URL}/swagger/logs/get?id_country=${countryId}`,
       {
         headers: {
           Authorization: 'Bearer test-token',
@@ -233,7 +233,7 @@ describe('useLogs', () => {
 
     expect(result.current.logs).toEqual([mockLogsResponse[1]]);
     expect(mockFetch).toHaveBeenLastCalledWith(
-      `http://qg.enzo-palermo.com:5001/swagger/logs/get?id_country=${countryId}`,
+      `${import.meta.env.VITE_API_URL}/swagger/logs/get?id_country=${countryId}`,
       {
         headers: {
           Authorization: 'Bearer test-token',
@@ -274,7 +274,7 @@ describe('useLogs', () => {
     });
 
     expect(mockFetch).toHaveBeenLastCalledWith(
-      'http://qg.enzo-palermo.com:5001/swagger/logs/get',
+      `${import.meta.env.VITE_API_URL}/swagger/logs/get`,
       {
         headers: {
           Authorization: 'Bearer token2',

@@ -14,12 +14,15 @@ const useDeleteUser = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch(`http://qg.enzo-palermo.com:5001/swagger/users/${userId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: authHeader,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/swagger/users/${userId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authHeader,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Erreur lors de la suppression de l'utilisateur.");
       }

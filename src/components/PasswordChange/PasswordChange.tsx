@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import useLoggedUser from "../../hooks/useLoggedUser";
 
@@ -35,19 +35,19 @@ const PasswordChange = () => {
     const { newPassword, confirmPassword } = formData;
 
     if (!newPassword || newPassword.length < 8) {
-      setError(t('forms.passwordMinLength'));
+      setError(t("forms.passwordMinLength"));
       return;
     }
 
     if (newPassword !== confirmPassword) {
-      setError(t('validation.passwordsDoNotMatch'));
+      setError(t("validation.passwordsDoNotMatch"));
       return;
     }
 
     setLoading(true);
     try {
       const res = await fetch(
-        `http://qg.enzo-palermo.com:5001/swagger/users/${user?.id_user}`,
+        `${import.meta.env.VITE_API_URL}/swagger/users/${user?.id_user}`,
         {
           method: "PUT",
           headers: {
@@ -61,12 +61,12 @@ const PasswordChange = () => {
         }
       );
 
-      if (!res.ok) throw new Error(t('forms.passwordUpdateFailed'));
+      if (!res.ok) throw new Error(t("forms.passwordUpdateFailed"));
 
-      setSuccess(t('forms.passwordUpdateSuccess'));
+      setSuccess(t("forms.passwordUpdateSuccess"));
       setFormData({ oldPassword: "", newPassword: "", confirmPassword: "" });
     } catch {
-      setError(t('forms.updateError'));
+      setError(t("forms.updateError"));
     } finally {
       setLoading(false);
     }
@@ -74,11 +74,13 @@ const PasswordChange = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">{t('sections.changePassword')}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        {t("sections.changePassword")}
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="oldPassword" className="block mb-1 font-medium">
-            {t('forms.currentPassword')}
+            {t("forms.currentPassword")}
           </label>
           <input
             id="oldPassword"
@@ -93,7 +95,7 @@ const PasswordChange = () => {
 
         <div>
           <label htmlFor="newPassword" className="block mb-1 font-medium">
-            {t('forms.newPassword')}
+            {t("forms.newPassword")}
           </label>
           <input
             id="newPassword"
@@ -108,7 +110,7 @@ const PasswordChange = () => {
 
         <div>
           <label htmlFor="confirmPassword" className="block mb-1 font-medium">
-            {t('forms.confirmPassword')}
+            {t("forms.confirmPassword")}
           </label>
           <input
             id="confirmPassword"
@@ -126,7 +128,7 @@ const PasswordChange = () => {
           disabled={loading}
           className="w-full py-2 px-4 rounded-lg border border-gray-400 hover:bg-gray-100 transition"
         >
-          {loading ? t('forms.updating') : t('forms.update')}
+          {loading ? t("forms.updating") : t("forms.update")}
         </button>
 
         {error && (

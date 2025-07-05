@@ -137,7 +137,7 @@ describe('useUpdateUser', () => {
     });
 
     expect(fetch).toHaveBeenCalledWith(
-      'http://qg.enzo-palermo.com:5001/swagger/users/1',
+      `${import.meta.env.VITE_API_URL}/swagger/users/1`,
       {
         method: 'PUT',
         headers: {

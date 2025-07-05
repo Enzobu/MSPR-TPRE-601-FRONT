@@ -26,7 +26,7 @@ const useLoggedUser = () => {
       return;
     }
 
-    fetch(`http://qg.enzo-palermo.com:5001/swagger/users/${decoded.sub}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/swagger/users/${decoded.sub}`, {
       headers: { Authorization: authHeader },
     })
       .then((res) => res.json())
