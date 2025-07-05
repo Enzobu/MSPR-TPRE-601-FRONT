@@ -1,12 +1,12 @@
-import { renderHook, waitFor, act } from '@testing-library/react';
-import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { renderHook, waitFor, act } from "@testing-library/react";
+import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
-import useDeleteUser from './useDeleteUser';
+import useDeleteUser from "./useDeleteUser";
 
 // Mock de react-auth-kit
-vi.mock('react-auth-kit/hooks/useAuthHeader', () => ({
-  default: vi.fn()
+vi.mock("react-auth-kit/hooks/useAuthHeader", () => ({
+  default: vi.fn(),
 }));
 
 const mockUseAuthHeader = vi.mocked(useAuthHeader);
@@ -14,24 +14,24 @@ const mockUseAuthHeader = vi.mocked(useAuthHeader);
 // Mock de fetch
 global.fetch = vi.fn();
 
-describe('useDeleteUser', () => {
+describe("useDeleteUser", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    mockUseAuthHeader.mockReturnValue('Bearer mock-token');
+    mockUseAuthHeader.mockReturnValue("Bearer mock-token");
   });
 
-  it('devrait initialiser avec des valeurs par défaut', () => {
+  it("devrait initialiser avec des valeurs par défaut", () => {
     const { result } = renderHook(() => useDeleteUser());
 
     expect(result.current.deletedUserId).toBeNull();
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBeNull();
-    expect(typeof result.current.deleteUser).toBe('function');
+    expect(typeof result.current.deleteUser).toBe("function");
   });
 
-  it('devrait supprimer un utilisateur avec succès', async () => {
+  it("devrait supprimer un utilisateur avec succès", async () => {
     (fetch as any).mockResolvedValueOnce({
-      ok: true
+      ok: true,
     });
 
     const { result } = renderHook(() => useDeleteUser());
@@ -45,7 +45,7 @@ describe('useDeleteUser', () => {
     expect(result.current.loading).toBe(false);
   });
 
-  it('devrait gérer l\'absence de token d\'authentification', async () => {
+  it("devrait gérer l'absence de token d'authentification", async () => {
     mockUseAuthHeader.mockReturnValue(null);
 
     const { result } = renderHook(() => useDeleteUser());
@@ -59,8 +59,8 @@ describe('useDeleteUser', () => {
     expect(result.current.loading).toBe(false);
   });
 
-  it('devrait gérer les erreurs de suppression', async () => {
-    (fetch as any).mockRejectedValueOnce(new Error('Erreur réseau'));
+  it("devrait gérer les erreurs de suppression", async () => {
+    (fetch as any).mockRejectedValueOnce(new Error("Erreur réseau"));
 
     const { result } = renderHook(() => useDeleteUser());
 
@@ -68,15 +68,17 @@ describe('useDeleteUser', () => {
       await result.current.deleteUser(1);
     });
 
-    expect(result.current.error).toBe("Erreur lors de la suppression de l'utilisateur.");
+    expect(result.current.error).toBe(
+      "Erreur lors de la suppression de l'utilisateur."
+    );
     expect(result.current.deletedUserId).toBeNull();
     expect(result.current.loading).toBe(false);
   });
 
-  it('devrait gérer les erreurs HTTP', async () => {
+  it("devrait gérer les erreurs HTTP", async () => {
     (fetch as any).mockResolvedValueOnce({
       ok: false,
-      status: 404
+      status: 404,
     });
 
     const { result } = renderHook(() => useDeleteUser());
@@ -85,14 +87,16 @@ describe('useDeleteUser', () => {
       await result.current.deleteUser(1);
     });
 
-    expect(result.current.error).toBe("Erreur lors de la suppression de l'utilisateur.");
+    expect(result.current.error).toBe(
+      "Erreur lors de la suppression de l'utilisateur."
+    );
     expect(result.current.deletedUserId).toBeNull();
     expect(result.current.loading).toBe(false);
   });
 
-  it('devrait appeler l\'API avec les bons paramètres', async () => {
+  it("devrait appeler l'API avec les bons paramètres", async () => {
     (fetch as any).mockResolvedValueOnce({
-      ok: true
+      ok: true,
     });
 
     const { result } = renderHook(() => useDeleteUser());
@@ -102,29 +106,34 @@ describe('useDeleteUser', () => {
     });
 
     expect(fetch).toHaveBeenCalledWith(
-      'http://qg.enzo-palermo.com:5001/swagger/users/1',
+      `${import.meta.env.VITE_API_URL}/swagger/users/1`,
       {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
-          Authorization: 'Bearer mock-token',
+          Authorization: "Bearer mock-token",
         },
       }
     );
   });
 
-  it('devrait gérer l\'état de chargement', async () => {
-    (fetch as any).mockImplementation(() => 
-      new Promise((resolve) => 
-        setTimeout(() => resolve({
-          ok: true
-        }), 100)
-      )
+  it("devrait gérer l'état de chargement", async () => {
+    (fetch as any).mockImplementation(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                ok: true,
+              }),
+            100
+          )
+        )
     );
 
     const { result } = renderHook(() => useDeleteUser());
 
     let deletePromise: Promise<void>;
-    
+
     act(() => {
       deletePromise = result.current.deleteUser(1);
     });
@@ -140,4 +149,4 @@ describe('useDeleteUser', () => {
 
     expect(result.current.loading).toBe(false);
   });
-}); 
+});

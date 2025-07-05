@@ -16,14 +16,17 @@ const useUpdateUser = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch(`http://qg.enzo-palermo.com:5001/swagger/users/${userId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: authHeader,
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/swagger/users/${userId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authHeader,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
         throw new Error("Erreur lors de la mise à jour de l'utilisateur.");
       }

@@ -24,8 +24,8 @@ const useLogs = ({ countryId }: UseLogsProps = {}) => {
 
     try {
       const url = id_country 
-        ? `http://qg.enzo-palermo.com:5001/swagger/logs/get?id_country=${id_country}`
-        : `http://qg.enzo-palermo.com:5001/swagger/logs/get`;
+        ? `${import.meta.env.VITE_API_URL}/swagger/logs/get?id_country=${id_country}`
+        : `${import.meta.env.VITE_API_URL}/swagger/logs/get`;
 
       const response = await fetch(url, {
         headers: {

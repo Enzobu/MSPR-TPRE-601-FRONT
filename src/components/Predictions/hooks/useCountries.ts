@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
+import { useState, useEffect } from "react";
+import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 
-import { countryTranslations } from '../../../data/countryTranslations';
-import type { Country } from '../../../types/types';
+import { countryTranslations } from "../../../data/countryTranslations";
+import type { Country } from "../../../types/types";
 
 export function useCountries() {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -13,20 +13,23 @@ export function useCountries() {
   useEffect(() => {
     const fetchCountries = async () => {
       if (!authHeader) {
-        setError('Non authentifié');
+        setError("Non authentifié");
         return;
       }
       try {
         setLoading(true);
-        const response = await fetch('http://qg.enzo-palermo.com:5001/swagger/countries', {
-          headers: {
-            'Authorization': authHeader,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/swagger/countries`,
+          {
+            headers: {
+              Authorization: authHeader,
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
           }
-        });
+        );
         if (!response.ok) {
-          throw new Error('Failed to fetch countries');
+          throw new Error("Failed to fetch countries");
         }
         const data = await response.json();
         const sortedCountries = data.sort((a: Country, b: Country) => {
@@ -37,7 +40,7 @@ export function useCountries() {
         setCountries(sortedCountries);
         setError(null);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setLoading(false);
       }
@@ -46,4 +49,4 @@ export function useCountries() {
   }, [authHeader]);
 
   return { countries, loading, error };
-} 
+}
